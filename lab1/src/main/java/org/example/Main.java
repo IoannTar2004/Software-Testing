@@ -4,9 +4,9 @@ import org.example.story.characters.Air;
 import org.example.story.characters.Person;
 import org.example.story.characters.Wind;
 import org.example.story.enums.States;
-import org.example.story.enums.WeakPart;
+import org.example.story.enums.DamagesPart;
+import org.example.story.info.GroupInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -15,14 +15,27 @@ public class Main {
         Person zafod = new Person("Зафод", States.DISCOURAGED);
         List<Person> people = List.of(arthur, zafod, new Person("p1", States.NORMAL),
                 new Person("p2", States.NORMAL), new Person("p3", States.NORMAL));
+        GroupInfo group = new GroupInfo();
+        group.setLeader(new Person("glrg", States.NORMAL));
         people.forEach(e -> {
+            e.setX(Math.random() * 5 + 2);
+            e.setY(Math.random() * 5 + 2);
+            group.getMembers().add(e);
             e.setSpeed(1.5);
             e.move();
         });
+        group.setLeader(people.get(4));
+        zafod.setX(30);
+        zafod.setY(30);
+        group.getRemoteMember();
 
         Wind wind = new Wind();
-        wind.negativeAction(arthur, WeakPart.EYES, WeakPart.EARS);
+        wind.negativeAction(arthur, DamagesPart.EYES, 30);
+        wind.negativeAction(arthur, DamagesPart.EARS, 50);
         Air air = new Air();
-        air.negativeAction(arthur, WeakPart.THROAT);
+        air.negativeAction(arthur, DamagesPart.THROAT, 40);
+        air.negativeAction(arthur, DamagesPart.MIND, 80);
+
+        arthur.findMostDamagedPart();
     }
 }

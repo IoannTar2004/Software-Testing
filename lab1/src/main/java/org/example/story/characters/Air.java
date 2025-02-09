@@ -1,9 +1,8 @@
 package org.example.story.characters;
 
-import org.example.story.enums.WeakPart;
+import org.example.story.enums.DamagesPart;
 import org.example.story.interfaces.Influence;
-
-import java.util.Arrays;
+import org.example.story.info.DamageInfo;
 
 public class Air extends Character implements Influence {
 
@@ -16,9 +15,8 @@ public class Air extends Character implements Influence {
     }
 
     @Override
-    public void negativeAction(Person person, WeakPart... weakParts) {
-        System.out.print(getName() + " сдавливает ");
-        Arrays.stream(weakParts).forEach(e -> System.out.print(e.getDescription() + ", "));
-        System.out.println("персонажа " + person.getName());
+    public void negativeAction(Person person, DamagesPart damagePart, int damage) {
+        System.out.printf("%s сдавливает %s персонажа %s%n", getName(), damagePart.getDescription(), person.getName());
+        person.getDamagesSet().add(new DamageInfo(damagePart, damage));
     }
 }
