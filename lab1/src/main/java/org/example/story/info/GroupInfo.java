@@ -22,7 +22,7 @@ public class GroupInfo {
         Person remotePerson = members.stream().max(Comparator.comparing(e ->
                 Math.sqrt(Math.pow(leader.getX() - e.getX(), 2) + Math.pow(leader.getY() - e.getY(), 2))))
                 .orElse(null);
-        System.out.println(remotePerson.getName() + "шел в отдалении от группы" + groupName);
+        System.out.println(remotePerson.getName() + " шёл в отдалении от группы" + groupName);
         return remotePerson;
     }
 }

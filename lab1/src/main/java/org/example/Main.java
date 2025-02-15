@@ -1,11 +1,15 @@
 package org.example;
 
 import org.example.story.characters.Air;
+import org.example.story.characters.Ground;
 import org.example.story.characters.Person;
 import org.example.story.characters.Wind;
 import org.example.story.enums.States;
 import org.example.story.enums.DamagesPart;
 import org.example.story.info.GroupInfo;
+import org.example.story.nature.Colors;
+import org.example.story.nature.Spot;
+import org.example.story.nature.Swamp;
 
 import java.util.List;
 
@@ -16,7 +20,6 @@ public class Main {
         List<Person> people = List.of(arthur, zafod, new Person("p1", States.NORMAL),
                 new Person("p2", States.NORMAL), new Person("p3", States.NORMAL));
         GroupInfo group = new GroupInfo();
-        group.setLeader(new Person("glrg", States.NORMAL));
         people.forEach(e -> {
             e.setX(Math.random() * 5 + 2);
             e.setY(Math.random() * 5 + 2);
@@ -24,6 +27,18 @@ public class Main {
             e.setSpeed(1.5);
             e.move();
         });
+
+        Ground ground = new Ground();
+        ground.getLandscapes().add(new Spot(Colors.DULLGRAY, 30));
+        ground.getLandscapes().add(new Spot(Colors.DULLBROWN, 40));
+        ground.getLandscapes().add(new Spot(Colors.DULLBROWN, 10));
+        ground.attracts(30);
+        Swamp swamp = new Swamp();
+        swamp.setDustInch(1);
+        ground.setSimilarBiome(swamp);
+        ground.isSimilarTo(true);
+
+
         group.setLeader(people.get(4));
         zafod.setX(30);
         zafod.setY(30);
