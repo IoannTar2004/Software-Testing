@@ -18,6 +18,6 @@ public class Wind extends Character implements Influence {
     public void negativeAction(Person person, DamagesPart damagePart, int damage) {
         System.out.printf("%s оглушает и ослепляет %s персонажа %s%n",
                 getName(), damagePart.getDescription(), person.getName());
-        person.getDamagesSet().add(new DamageInfo(damagePart, damage));
+        person.getDamages().add(new DamageInfo(damagePart, damage));
     }
 }

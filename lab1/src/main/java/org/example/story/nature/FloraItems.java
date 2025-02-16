@@ -3,7 +3,7 @@ package org.example.story.nature;
 import lombok.Getter;
 
 public enum FloraItems {
-    TREES("Деревья"), GRASS("Трава"), FLOWERS("Цветки");
+    TREES("деревья"), GRASS("трава"), FLOWERS("цветки");
 
     @Getter
     private final String floraItem;

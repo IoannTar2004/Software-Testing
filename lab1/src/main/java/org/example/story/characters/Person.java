@@ -6,22 +6,20 @@ import org.example.story.enums.DamagesPart;
 import org.example.story.enums.States;
 import org.example.story.info.DamageInfo;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
-public class Person extends Character{
+public class Person extends Character {
     private States state;
     private double speed;
-    private Set<DamageInfo> damagesSet;
+    private List<DamageInfo> damages;
     private double x, y;
 
     public Person(String name, States state) {
         super(name);
         this.state = state;
-        this.damagesSet = new HashSet<>();
+        this.damages = new ArrayList<>();
     }
 
     public void move() {
@@ -34,11 +32,24 @@ public class Person extends Character{
     }
 
     public DamagesPart findMostDamagedPart() {
-        DamageInfo damageInfo = damagesSet.stream().max(Comparator.comparing(DamageInfo::getDamage)).orElse(null);
-        if (damageInfo == null) return null;
-        System.out.printf("Сильнее всего повреждённым является %s персонажа %s%n",
-                damageInfo.getDamagesPart().getDescription(), getName());
-        return damageInfo.getDamagesPart();
+        if (damages.isEmpty()) {
+            System.out.println("У персонажа " + getName() + " нет повреждений.");
+            return null;
+        }
+
+        DamageInfo maxDamage = damages.get(0);
+        boolean allMatch = true;
+        for (int i = 1; i < damages.size(); i++) {
+            if (damages.get(i).getDamage() != maxDamage.getDamage())
+                allMatch = false;
+            maxDamage = damages.get(i).getDamage() > maxDamage.getDamage() ? damages.get(i) : maxDamage;
+        }
+        if (allMatch)
+            System.out.println("У персонажа " + getName() + " всё одинаково повреждено.");
+        else
+            System.out.printf("Сильнее всего повреждённым является %s персонажа %s%n",
+                    maxDamage.getDamagesPart().getDescription(), getName());
+        return maxDamage.getDamagesPart();
     }
 
 }

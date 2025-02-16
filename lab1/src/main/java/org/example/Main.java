@@ -7,9 +7,7 @@ import org.example.story.characters.Wind;
 import org.example.story.enums.States;
 import org.example.story.enums.DamagesPart;
 import org.example.story.info.GroupInfo;
-import org.example.story.nature.Colors;
-import org.example.story.nature.Spot;
-import org.example.story.nature.Swamp;
+import org.example.story.nature.*;
 
 import java.util.List;
 
@@ -33,8 +31,10 @@ public class Main {
         ground.getLandscapes().add(new Spot(Colors.DULLBROWN, 40));
         ground.getLandscapes().add(new Spot(Colors.DULLBROWN, 10));
         ground.attracts(30);
-        Swamp swamp = new Swamp();
+        Swamp swamp = new Swamp("Сибирское");
         swamp.setDustInch(1);
+        swamp.getFloras().add(FloraItems.GRASS);
+        swamp.getFloras().add(FloraItems.TREES);
         ground.setSimilarBiome(swamp);
         ground.isSimilarTo(true);
 

@@ -15,7 +15,7 @@ public class Ground extends Character {
     private Biome similarBiome;
 
     public Ground(String name) {
-        super("Земля" + name);
+        super("Земля " + name);
     }
 
     public Ground() {

@@ -9,5 +9,12 @@ import org.example.story.enums.DamagesPart;
 public class DamageInfo {
     private DamagesPart damagesPart;
     private int damage;
+
+    public void setDamage(int damage) {
+        if (damage <= 0)
+            this.damage = 1;
+        else
+            this.damage = damage;
+    }
 }
 
