@@ -1,28 +1,46 @@
 package org.example.math;
 
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 import static java.lang.Math.*;
 
 public class Trigonometry {
 
-    private long double_factorial(int x) {
-        if (x <= 0) return 1;
-
-        long result = x;
-        for (int i = x - 2; i > 1; i -= 2)
-            result *= i;
+    public static BigInteger factorial(int x) {
+        if (x == 0 || x == 1) return BigInteger.ONE;
+        BigInteger result = BigInteger.ONE;
+        for (int i = 2; i <= x; i++)
+            result = result.multiply(BigInteger.valueOf(i));
         return result;
     }
 
-    public double arcsin_power(int n, double x) {
-        if (n <= 0 || n > 17) throw new IllegalArgumentException("Число n должно быть в пределах 0 < n <= 17!");
-        if (abs(x) > 1) throw new IllegalArgumentException("Аргумент x должен находится в пределе -1 <= x <= 1!");
+    public static long combination(int n, int k) {
+        return factorial(n).divide(factorial(k).multiply(factorial(n - k))).longValue();
+    }
 
-        double result = 0;
-        for (int i = 0; i < n; i++) {
-            double a = (double_factorial(2 * i - 1) * pow(x, 2 * i + 1));
-            double b = (double_factorial(2 * i) * (2 * i + 1));
-            result += a / b;
+    public static double bernulli(int n) {
+        if (n % 2 == 1 && n != 1) return 0.0;
+
+        List<Double> B = new LinkedList<>(List.of(1D));
+        for (int i = 1; i <= n; i++) {
+            double sum = 0;
+            for (int k = 0; k <= i - 1; k++)
+                sum += combination(i + 1, k) * B.get(k);
+            B.add(-1D / (i + 1) * sum);
         }
-        return result;
+        return B.get(B.size() - 1);
+    }
+
+    public static double tanPower(double x, int n) {
+        if (abs(x) > PI / 2) throw new IllegalArgumentException("Число x должно быть по модулю меньше PI / 2");
+        double res = 0;
+        for (int i = 1; i < n; i++) {
+            res += (abs(bernulli(2*i)) * pow(2, 2*i) * (pow(2, 2*i) - 1) * pow(x, 2*i - 1)) / factorial(2*i).doubleValue();
+        }
+        return res;
     }
 }

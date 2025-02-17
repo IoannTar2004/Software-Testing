@@ -2,6 +2,7 @@ package org.example.story;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.sun.management.OperatingSystemMXBean;
 import org.example.story.characters.Ground;
 import org.example.story.characters.Person;
 import org.example.story.characters.Wind;
@@ -10,6 +11,7 @@ import org.example.story.enums.States;
 import org.example.story.info.Group;
 import org.example.story.nature.*;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -17,6 +19,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.management.ManagementFactory;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -25,6 +28,7 @@ import java.util.Set;
 public class StoryTest {
 
     private PrintStream originalOut;
+    private final OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 
     private ByteArrayOutputStream getOutputStream() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -34,9 +38,11 @@ public class StoryTest {
     }
 
     @AfterEach
-    public void soutRestore() {
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(500);
         if (originalOut != null)
             System.setOut(originalOut);
+        System.out.printf("CPU load: %.3f%n", osBean.getProcessCpuLoad() * 100);
     }
 
     @ParameterizedTest
@@ -47,6 +53,7 @@ public class StoryTest {
             "50, 50, 50, уши"
     })
     public void findMostDamagedPartTest(int d1, int d2, int d3, String part) {
+        getOutputStream();
         Person person = new Person("p1", States.NORMAL);
         Wind wind = new Wind();
         wind.negativeAction(person, DamagesPart.EARS, d1);
@@ -63,6 +70,7 @@ public class StoryTest {
             "0, 0, 0"
     })
     public void findMostDamagedPartTestAllEquals(int d1, int d2, int d3) {
+        getOutputStream();
         Person person = new Person("p1", States.NORMAL);
         Wind wind = new Wind();
         wind.negativeAction(person, DamagesPart.EARS, d1);
