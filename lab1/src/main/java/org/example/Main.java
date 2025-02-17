@@ -6,7 +6,7 @@ import org.example.story.characters.Person;
 import org.example.story.characters.Wind;
 import org.example.story.enums.States;
 import org.example.story.enums.DamagesPart;
-import org.example.story.info.GroupInfo;
+import org.example.story.info.Group;
 import org.example.story.nature.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class Main {
         Person zafod = new Person("Зафод", States.DISCOURAGED);
         List<Person> people = List.of(arthur, zafod, new Person("p1", States.NORMAL),
                 new Person("p2", States.NORMAL), new Person("p3", States.NORMAL));
-        GroupInfo group = new GroupInfo();
+        Group group = new Group();
         people.forEach(e -> {
             e.setX(Math.random() * 5 + 2);
             e.setY(Math.random() * 5 + 2);

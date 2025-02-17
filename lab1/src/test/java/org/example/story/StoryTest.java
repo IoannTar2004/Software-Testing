@@ -7,18 +7,19 @@ import org.example.story.characters.Person;
 import org.example.story.characters.Wind;
 import org.example.story.enums.DamagesPart;
 import org.example.story.enums.States;
-import org.example.story.nature.Flora;
-import org.example.story.nature.FloraItems;
-import org.example.story.nature.Swamp;
+import org.example.story.info.Group;
+import org.example.story.nature.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 
 public class StoryTest {
@@ -114,11 +115,99 @@ public class StoryTest {
     }
 
     @Test
-    public void groundIsSimilarTo() {
+    public void groundIsSimilarToTest() {
         Ground ground = new Ground("Новая");
         ground.setSimilarBiome(new Swamp("Сибирское"));
         ByteArrayOutputStream outputStream = getOutputStream();
         ground.isSimilarTo(false);
         assertEquals("Земля Новая похожа на Болото Сибирское\r\n", outputStream.toString());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2})
+    public void getRemoteMemberTest(int member) {
+        Group group = new Group("B");
+        group.setMembers(List.of(
+                new Person("p0"),
+                new Person("p1"),
+                new Person("p2"),
+                new Person("p3")));
+        group.setLeader(group.getMembers().get(3));
+        group.getMembers().forEach(m -> {
+            if (Objects.equals(m.getName(), "p" + member)) {
+                m.setX(30);
+                m.setY(30);
+            } else {
+                m.setX(5);
+                m.setY(5);
+            }
+        });
+
+        ByteArrayOutputStream outputStream = getOutputStream();
+        Person remotePerson = group.getRemoteMember();
+        assertEquals(remotePerson.getName(), "p" + member);
+        String expected = String.format("%s шёл в отдалении от группы B.%n", remotePerson.getName());
+        assertEquals(expected, outputStream.toString());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2})
+    public void getRemoteMemberTestSmallGroup(int count) {
+        Group group = new Group("B");
+        for (int i = 0; i < count; i++)
+            group.getMembers().add(new Person("Vasya"));
+
+        assertThrows(NullPointerException.class, group::getRemoteMember);
+    }
+
+    private String groundAttractsBuilder(Ground ground, int a1, int a2, int a3, int threshold) {
+        ground.getLandscapes().addAll(Set.of(
+                new Spot(Colors.DULLBROWN, a1),
+                new Spot(Colors.DULLGRAY, a2),
+                new Spot(Colors.DULLBROWN, a3)));
+
+        StringBuilder spots = new StringBuilder();
+        for (Landscape landscape : ground.getLandscapes()) {
+            if (landscape.getAttraction() >= threshold)
+                spots.append(landscape).append(", ");
+        }
+
+        return spots.toString();
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "50, 10, 40, 30",
+            "100, 99, 90, 95"
+    })
+    public void groundAttractsTest(int a1, int a2, int a3, int threshold) {
+        Ground ground = new Ground("Новая");
+        String spots = groundAttractsBuilder(ground, a1, a2, a3, threshold);
+        ByteArrayOutputStream outputStream = getOutputStream();
+        ground.attracts(threshold);
+        assertEquals("Земля Новая привлекала следующими пейзажами: " + spots +
+                ". Остальной пейзаж был менее интересным\r\n", outputStream.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "50, 10, 40, 5",
+            "100, 99, 90, 90",
+    })
+    public void groundAttractsTestHighThreshold(int a1, int a2, int a3, int threshold) {
+        Ground ground = new Ground("Новая");
+        String spots = groundAttractsBuilder(ground, a1, a2, a3, threshold);
+        ByteArrayOutputStream outputStream = getOutputStream();
+        ground.attracts(threshold);
+        assertEquals("Земля Новая привлекала следующими пейзажами: " + spots + "\r\n",
+                outputStream.toString());
+    }
+
+    @Test
+    public void groundAttractsTestEmpty() {
+        Ground ground = new Ground("Новая");
+        ByteArrayOutputStream outputStream = getOutputStream();
+        ground.attracts(0);
+        assertEquals("Земля Новая не привлекала никакими пейзажами.\r\n", outputStream.toString());
     }
 }

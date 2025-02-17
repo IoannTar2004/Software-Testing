@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.example.story.enums.DamagesPart;
 import org.example.story.enums.States;
-import org.example.story.info.DamageInfo;
+import org.example.story.info.Damage;
 
 import java.util.*;
 
@@ -13,13 +13,17 @@ import java.util.*;
 public class Person extends Character {
     private States state;
     private double speed;
-    private List<DamageInfo> damages;
+    private List<Damage> damages = new ArrayList<>();
     private double x, y;
 
     public Person(String name, States state) {
         super(name);
         this.state = state;
-        this.damages = new ArrayList<>();
+    }
+
+    public Person(String name) {
+        super(name);
+        this.state = States.NORMAL;
     }
 
     public void move() {
@@ -37,7 +41,7 @@ public class Person extends Character {
             return null;
         }
 
-        DamageInfo maxDamage = damages.get(0);
+        Damage maxDamage = damages.get(0);
         boolean allMatch = true;
         for (int i = 1; i < damages.size(); i++) {
             if (damages.get(i).getDamage() != maxDamage.getDamage())

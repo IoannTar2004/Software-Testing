@@ -24,7 +24,7 @@ public class Ground extends Character {
 
     public void attracts(int attractThreshold) {
         if (landscapes.isEmpty() || landscapes.iterator().next().getAttraction() < attractThreshold) {
-            System.out.println(getName() + " не привлекала никакими пейзажами");
+            System.out.println(getName() + " не привлекала никакими пейзажами.");
             return;
         }
         System.out.print(getName() + " привлекала следующими пейзажами: ");
@@ -38,6 +38,8 @@ public class Ground extends Character {
         }
         if (i < landscapes.size())
             System.out.println(". Остальной пейзаж был менее интересным");
+        else
+            System.out.println();
     }
 
     public void isSimilarTo(boolean describeBiome) {
