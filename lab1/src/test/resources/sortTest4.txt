@@ -1,0 +1,19 @@
+Loop number 1. Current min: Chocolate
+Found new min: Adidas
+Swap indexes 0 and 2
+
+Loop number 2. Current min: Work
+Found new min: Chocolate
+Swap indexes 1 and 2
+
+Loop number 3. Current min: Work
+Found new min: Volga
+Found new min: Ivan
+Swap indexes 2 and 4
+
+Loop number 4. Current min: Volga
+Swap indexes 3 and 3
+
+Loop number 5. Current min: Work
+Swap indexes 4 and 4
+

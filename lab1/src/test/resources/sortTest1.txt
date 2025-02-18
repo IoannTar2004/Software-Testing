@@ -1,0 +1,33 @@
+Loop number 1. Current min: 5
+Found new min: 3
+Found new min: 2
+Found new min: 1
+Swap indexes 0 and 7
+
+Loop number 2. Current min: 3
+Found new min: 2
+Swap indexes 1 and 4
+
+Loop number 3. Current min: 10
+Found new min: 5
+Found new min: 3
+Swap indexes 2 and 4
+
+Loop number 4. Current min: 5
+Swap indexes 3 and 3
+
+Loop number 5. Current min: 10
+Found new min: 5
+Swap indexes 4 and 7
+
+Loop number 6. Current min: 57
+Found new min: 44
+Found new min: 10
+Swap indexes 5 and 7
+
+Loop number 7. Current min: 44
+Swap indexes 6 and 6
+
+Loop number 8. Current min: 57
+Swap indexes 7 and 7
+

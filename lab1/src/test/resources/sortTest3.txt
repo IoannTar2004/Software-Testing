@@ -1,0 +1,12 @@
+Loop number 1. Current min: 4
+Swap indexes 0 and 0
+
+Loop number 2. Current min: 4
+Swap indexes 1 and 1
+
+Loop number 3. Current min: 4
+Swap indexes 2 and 2
+
+Loop number 4. Current min: 4
+Swap indexes 3 and 3
+

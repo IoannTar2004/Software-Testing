@@ -27,10 +27,10 @@ import java.util.Set;
 
 public class StoryTest {
 
-    private PrintStream originalOut;
-    private final OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+    PrintStream originalOut;
+    final OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 
-    private ByteArrayOutputStream getOutputStream() {
+    ByteArrayOutputStream getOutputStream() {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         originalOut = System.out;
         System.setOut(new PrintStream(outputStream));
@@ -38,7 +38,7 @@ public class StoryTest {
     }
 
     @AfterEach
-    public void tearDown() throws InterruptedException {
+    void tearDown() throws InterruptedException {
         Thread.sleep(500);
         if (originalOut != null)
             System.setOut(originalOut);
@@ -52,7 +52,7 @@ public class StoryTest {
             "45, 46, 46, глаза",
             "50, 50, 50, уши"
     })
-    public void findMostDamagedPartTest(int d1, int d2, int d3, String part) {
+    void findMostDamagedPartTest(int d1, int d2, int d3, String part) {
         getOutputStream();
         Person person = new Person("p1", States.NORMAL);
         Wind wind = new Wind();
@@ -69,7 +69,7 @@ public class StoryTest {
             "100, 100, 100",
             "0, 0, 0"
     })
-    public void findMostDamagedPartTestAllEquals(int d1, int d2, int d3) {
+    void findMostDamagedPartTestAllEquals(int d1, int d2, int d3) {
         getOutputStream();
         Person person = new Person("p1", States.NORMAL);
         Wind wind = new Wind();
@@ -83,7 +83,7 @@ public class StoryTest {
     }
 
     @Test
-    public void findMostDamagedPartTestEmpty() {
+    void findMostDamagedPartTestEmpty() {
         Person person = new Person("p1", States.NORMAL);
         ByteArrayOutputStream outputStream = getOutputStream();
         DamagesPart damagesPart = person.findMostDamagedPart();
@@ -92,7 +92,7 @@ public class StoryTest {
     }
 
     @Test
-    public void describeFloraOfSwampNoFlora() {
+    void describeFloraOfSwampNoFlora() {
         Swamp swamp = new Swamp("Сибирское");
         ByteArrayOutputStream outputStream = getOutputStream();
         swamp.describeFlora();
@@ -108,7 +108,7 @@ public class StoryTest {
             "FLOWERS, GRASS, 10",
             "TREES, FLOWERS, 3.5"
     })
-    public void describeFloraOfSwampWithFlora(String f1, String f2, double dust) {
+    void describeFloraOfSwampWithFlora(String f1, String f2, double dust) {
         Swamp swamp = new Swamp("Сибирское");
         FloraItems flora1 = FloraItems.valueOf(f1);
         FloraItems flora2 = FloraItems.valueOf(f2);
@@ -123,7 +123,7 @@ public class StoryTest {
     }
 
     @Test
-    public void groundIsSimilarToTest() {
+    void groundIsSimilarToTest() {
         Ground ground = new Ground("Новая");
         ground.setSimilarBiome(new Swamp("Сибирское"));
         ByteArrayOutputStream outputStream = getOutputStream();
@@ -133,7 +133,7 @@ public class StoryTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2})
-    public void getRemoteMemberTest(int member) {
+    void getRemoteMemberTest(int member) {
         Group group = new Group("B");
         group.setMembers(List.of(
                 new Person("p0"),
@@ -160,7 +160,7 @@ public class StoryTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2})
-    public void getRemoteMemberTestSmallGroup(int count) {
+    void getRemoteMemberTestSmallGroup(int count) {
         Group group = new Group("B");
         for (int i = 0; i < count; i++)
             group.getMembers().add(new Person("Vasya"));
@@ -168,7 +168,7 @@ public class StoryTest {
         assertThrows(NullPointerException.class, group::getRemoteMember);
     }
 
-    private String groundAttractsBuilder(Ground ground, int a1, int a2, int a3, int threshold) {
+    String groundAttractsBuilder(Ground ground, int a1, int a2, int a3, int threshold) {
         ground.getLandscapes().addAll(Set.of(
                 new Spot(Colors.DULLBROWN, a1),
                 new Spot(Colors.DULLGRAY, a2),
@@ -188,7 +188,7 @@ public class StoryTest {
             "50, 10, 40, 30",
             "100, 99, 90, 95"
     })
-    public void groundAttractsTest(int a1, int a2, int a3, int threshold) {
+    void groundAttractsTest(int a1, int a2, int a3, int threshold) {
         Ground ground = new Ground("Новая");
         String spots = groundAttractsBuilder(ground, a1, a2, a3, threshold);
         ByteArrayOutputStream outputStream = getOutputStream();
@@ -202,7 +202,7 @@ public class StoryTest {
             "50, 10, 40, 5",
             "100, 99, 90, 90",
     })
-    public void groundAttractsTestHighThreshold(int a1, int a2, int a3, int threshold) {
+    void groundAttractsTestHighThreshold(int a1, int a2, int a3, int threshold) {
         Ground ground = new Ground("Новая");
         String spots = groundAttractsBuilder(ground, a1, a2, a3, threshold);
         ByteArrayOutputStream outputStream = getOutputStream();
@@ -212,7 +212,7 @@ public class StoryTest {
     }
 
     @Test
-    public void groundAttractsTestEmpty() {
+    void groundAttractsTestEmpty() {
         Ground ground = new Ground("Новая");
         ByteArrayOutputStream outputStream = getOutputStream();
         ground.attracts(0);
