@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.story.characters.Air;
-import org.example.story.characters.Ground;
+import org.example.story.nature.Air;
+import org.example.story.nature.Ground;
 import org.example.story.characters.Person;
-import org.example.story.characters.Wind;
-import org.example.story.enums.States;
-import org.example.story.enums.DamagesPart;
+import org.example.story.nature.Wind;
+import org.example.story.characters.States;
+import org.example.story.characters.DamagesPart;
 import org.example.story.info.Group;
 import org.example.story.nature.*;
 

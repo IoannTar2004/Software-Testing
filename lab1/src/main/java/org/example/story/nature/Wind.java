@@ -1,17 +1,22 @@
-package org.example.story.characters;
+package org.example.story.nature;
 
-import org.example.story.enums.DamagesPart;
+import lombok.Data;
+import org.example.story.characters.DamagesPart;
+import org.example.story.characters.Person;
 import org.example.story.interfaces.Influence;
 import org.example.story.info.Damage;
 
-public class Wind extends Character implements Influence {
+@Data
+public class Wind implements Influence {
+
+    private String name;
 
     public Wind(String name) {
-        super("Ветер " + name);
+        this.name = "Ветер " + name;
     }
 
     public Wind() {
-        super("Ветер");
+        this.name = "Ветер";
     }
 
     @Override

@@ -2,8 +2,6 @@ package org.example.story.characters;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.story.enums.DamagesPart;
-import org.example.story.enums.States;
 import org.example.story.info.Damage;
 
 import java.util.*;

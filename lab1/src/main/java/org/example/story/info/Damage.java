@@ -2,7 +2,7 @@ package org.example.story.info;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.example.story.enums.DamagesPart;
+import org.example.story.characters.DamagesPart;
 
 @Data
 @AllArgsConstructor

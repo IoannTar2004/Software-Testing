@@ -1,4 +1,4 @@
-package org.example.story.enums;
+package org.example.story.characters;
 
 import lombok.Getter;
 
