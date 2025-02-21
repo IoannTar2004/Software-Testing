@@ -24,13 +24,21 @@ public class Person extends Character {
         this.state = States.NORMAL;
     }
 
+    public void setSpeed(double speed) {
+        if (speed < 0)
+            throw new IllegalArgumentException();
+        this.speed = speed;
+    }
+
     public void move() {
         if (speed == 0)
-            System.out.println(getName() + " стоит на месте!");
+            System.out.println(getName() + " стоит на месте");
         else if (speed > 0 && speed < 2)
             System.out.println(getName() + " медленно бредёт");
-        else
+        else if (speed >= 2 && speed < 7)
             System.out.println(getName() + " идёт");
+        else
+            System.out.println(getName() + " бежит");
     }
 
     public DamagesPart findMostDamagedPart() {

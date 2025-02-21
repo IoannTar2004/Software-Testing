@@ -9,10 +9,12 @@ import static java.lang.Math.*;
 public class Trigonometry {
 
     public static BigInteger factorial(int x) {
+        if (x < 0) throw new IllegalArgumentException();
         if (x == 0 || x == 1) return BigInteger.ONE;
         BigInteger result = BigInteger.ONE;
         for (int i = 2; i <= x; i++)
             result = result.multiply(BigInteger.valueOf(i));
+
         return result;
     }
 

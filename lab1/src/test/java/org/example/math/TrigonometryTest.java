@@ -54,4 +54,18 @@ public class TrigonometryTest {
         double res = Trigonometry.bernulli(input);
         assertEquals(expected, res, 1e-2);
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0, 1",
+            "1, 1",
+            "2, 2",
+            "3, 6",
+            "4, 24",
+            "7, 5040",
+            "10, 3628800"
+    })
+    void factorialTest(int x, int expected) {
+        assertEquals(expected, Trigonometry.factorial(x).longValue());
+    }
 }

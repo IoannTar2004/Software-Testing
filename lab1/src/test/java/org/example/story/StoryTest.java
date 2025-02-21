@@ -17,8 +17,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.management.ManagementFactory;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -49,7 +54,7 @@ public class StoryTest {
             "30, 20, 80, горло",
             "100, 75, 20, уши",
             "45, 46, 46, глаза",
-            "50, 50, 50, уши"
+            "50, 50, 50, уши",
     })
     void findMostDamagedPartTest(int d1, int d2, int d3, String part) {
         getOutputStream();
@@ -216,5 +221,36 @@ public class StoryTest {
         ByteArrayOutputStream outputStream = getOutputStream();
         ground.attracts(0);
         assertEquals("Земля Новая не привлекала никакими пейзажами.\r\n", outputStream.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0, Вася стоит на месте",
+            "1, Вася медленно бредёт",
+            "5, Вася идёт",
+            "15, Вася бежит"
+    })
+    void personMoveTest(int speed, String msg) {
+        Person person = new Person("Вася");
+        ByteArrayOutputStream outputStream = getOutputStream();
+        person.setSpeed(speed);
+        person.move();
+        assertEquals(msg + "\r\n", outputStream.toString());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-4, -10, Integer.MIN_VALUE})
+    void personMoveTestNegativeSpeed(int speed) {
+        Person person = new Person("Вася");
+        assertThrows(IllegalArgumentException.class, () -> person.setSpeed(speed));
+    }
+
+    @Test
+    void storyTellingTest() throws IOException, URISyntaxException {
+        String expected = Files.readString(Path.of(getClass().getClassLoader().getResource("story.txt").toURI()));
+        ByteArrayOutputStream outputStream = getOutputStream();
+        new Story().tellStory();
+        byte[] bytes = outputStream.toString().getBytes("windows-1251");
+        assertEquals(expected, new String(bytes, StandardCharsets.UTF_8));
     }
 }
