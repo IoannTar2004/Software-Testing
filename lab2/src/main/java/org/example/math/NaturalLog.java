@@ -2,7 +2,7 @@ package org.example.math;
 
 public class NaturalLog {
 
-    public static double ln(double x) {
+    public double ln(double x) {
         if (x <= 0) throw new IllegalArgumentException();
         if (x == 1) return 0;
 
@@ -15,5 +15,9 @@ public class NaturalLog {
         }
 
         return result;
+    }
+
+    public void writeToCSV(String filename, double begin, double step, int count) {
+        CSVWriter.write(filename, begin, step, count, this::ln, "X,ln(X)");
     }
 }

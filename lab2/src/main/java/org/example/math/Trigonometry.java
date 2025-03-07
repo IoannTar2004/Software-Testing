@@ -1,21 +1,28 @@
 package org.example.math;
 
+import java.util.function.Function;
+
 import static java.lang.Math.*;
 
 public class Trigonometry {
 
-    public static double tg(double x) {
-        if (x % (PI / 2) == 0 && x != 0) throw new IllegalArgumentException();
-        return Sine.sin(x) / Cosine.cos(x);
+    public double tg(double x) {
+        if (x % (PI / 2) == 0 && x % PI != 0) throw new IllegalArgumentException();
+        return new Sine().sin(x) / new Cosine().cos(x);
     }
 
-    public static double ctg(double x) {
+    public double ctg(double x) {
         if (x % PI == 0) throw new IllegalArgumentException();
-        return Cosine.cos(x) / Sine.sin(x);
+        return new Cosine().cos(x) / new Sine().sin(x);
     }
 
-    public static double csc(double x) {
+    public double csc(double x) {
         if (x % PI == 0) throw new IllegalArgumentException();
-        return 1 / Sine.sin(x);
+        return 1 / new Sine().sin(x);
+    }
+
+    public void writeToCSV(String filename, double begin, double step, int count, Function<Double, Double> f,
+                           String headers) {
+        CSVWriter.write(filename, begin, step, count, f, headers);
     }
 }
