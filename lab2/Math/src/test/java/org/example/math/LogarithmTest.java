@@ -33,12 +33,6 @@ public class LogarithmTest {
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {0.0, -4, -0.3})
-    void lnTestIllegalArgument(double x) {
-        assertThrows(IllegalArgumentException.class, () -> new NaturalLog().ln(x));
-    }
-
-    @ParameterizedTest
     @CsvSource({
             "3, 3, 1, 1.098, 1.098",
             "2, 1024, 10, 0.693, 6.931",
@@ -54,6 +48,12 @@ public class LogarithmTest {
             double result = new Logarithm().log(base, x);
             assertEquals(expected, result, 0.05);
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {0.0, -4, -0.3})
+    void lnTestIllegalArgument(double x) {
+        assertThrows(IllegalArgumentException.class, () -> new NaturalLog().ln(x));
     }
 
     @ParameterizedTest

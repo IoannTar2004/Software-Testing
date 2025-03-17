@@ -1,0 +1,40 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+    <changeSet author="ivan" id="changelog-1.0">
+        <createTable tableName="players">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(32)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="varchar(32)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cache" type="integer" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="cars">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="model" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="players_cars">
+            <column name="player_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_players_cars_player" references="players(id)"/>
+            </column>
+            <column name="car_id" type="integer">
+                <constraints nullable="false" foreignKeyName="fk_players_cars_cars" references="cars(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
