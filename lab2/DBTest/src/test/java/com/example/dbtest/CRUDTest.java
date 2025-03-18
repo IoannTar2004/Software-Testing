@@ -4,10 +4,10 @@ import com.example.dbtest.entities.Car;
 import com.example.dbtest.entities.Player;
 import com.example.dbtest.repositories.CarRepository;
 import com.example.dbtest.repositories.PlayerRepository;
-import com.example.dbtest.services.PlayerService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +16,8 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.org.checkerframework.checker.units.qual.A;
+
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,7 +46,7 @@ public class CRUDTest {
     private CarRepository carRepository;
 
     @BeforeAll
-    static void setUp() {
+    static void setup() {
         container.start();
     }
 
@@ -54,19 +55,48 @@ public class CRUDTest {
         container.close();
     }
 
-    @Test
-    @Transactional
-    void createAndReadTest() {
+    @BeforeEach
+    void initDB() {
         Car car = new Car("Porsche 911 Turbo (996)");
-        carRepository.save(car);
         Player player = new Player("Ivan", "123456");
         player.getCars().add(car);
+        car.getPlayers().add(player);
+        carRepository.save(car);
         playerRepository.save(player);
+    }
 
-        Player savedPlayer = playerRepository.findById(1L).orElseThrow();
-        Car savedCar = carRepository.findById(1).orElseThrow();
-        assertEquals("Ivan", savedPlayer.getName());
-        assertEquals("Porsche 911 Turbo (996)", savedCar.getModel());
+    @Test
+    @Transactional
+    void readTest() {
+        var car = carRepository.findByModel("Porsche 911 Turbo (996)").orElseThrow();
+        Player savedPlayer = playerRepository.findByName("Ivan").orElseThrow();
         assertEquals("Porsche 911 Turbo (996)", savedPlayer.getCars().get(0).getModel());
+    }
+
+
+    @Test
+    @Transactional
+    void updateTest() {
+        Player player = playerRepository.findByName("Ivan").orElseThrow();
+        Car car = carRepository.findByModel("Porsche 911 Turbo (996)").orElseThrow();
+
+        player.setName("Vova");
+        car.setModel("Ford GT-40");
+        playerRepository.save(player);
+        carRepository.save(car);
+
+        playerRepository.findByName("Vova").orElseThrow();
+        Car savedCar = carRepository.findByModel("Ford GT-40").orElseThrow();
+        assertEquals("Vova", savedCar.getPlayers().get(0).getName());
+    }
+
+    @Test
+    @Transactional
+    void deleteTest() {
+        playerRepository.deleteByName("Ivan");
+        carRepository.deleteByModel("Ford GT-40");
+
+        assertThrows(NoSuchElementException.class, () -> playerRepository.findByName("Ivan").orElseThrow());
+        assertThrows(NoSuchElementException.class, () -> carRepository.findByModel("Ford GT-40").orElseThrow());
     }
 }
