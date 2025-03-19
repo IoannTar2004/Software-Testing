@@ -1,0 +1,21 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+    <changeSet author="ivan" id="changelog-2.0">
+        <addColumn tableName="cars">
+            <column name="speed" type="integer" defaultValue="100">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="cars" columnName="speed" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="tag-2.0" author="ivan">
+        <tagDatabase tag="2.0" />
+    </changeSet>
+</databaseChangeLog>

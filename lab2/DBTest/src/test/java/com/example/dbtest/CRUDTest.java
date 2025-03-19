@@ -5,6 +5,13 @@ import com.example.dbtest.entities.Player;
 import com.example.dbtest.repositories.CarRepository;
 import com.example.dbtest.repositories.PlayerRepository;
 import jakarta.transaction.Transactional;
+import liquibase.Contexts;
+import liquibase.Liquibase;
+import liquibase.database.Database;
+import liquibase.database.DatabaseFactory;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.LiquibaseException;
+import liquibase.resource.ClassLoaderResourceAccessor;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +24,9 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,6 +36,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CRUDTest {
 
     static final String DOCKER_IMAGE = "postgres:16";
+    static Liquibase liquibase;
+    static Connection connection;
 
     @Container
     static PostgreSQLContainer<?> container = new PostgreSQLContainer<>(DOCKER_IMAGE);
@@ -37,27 +49,35 @@ public class CRUDTest {
         registry.add("spring.datasource.password", container::getPassword);
     }
 
-//    @Autowired
-//    private PlayerService playerService;
-
     @Autowired
-    private PlayerRepository playerRepository;
+    PlayerRepository playerRepository;
     @Autowired
-    private CarRepository carRepository;
+    CarRepository carRepository;
 
     @BeforeAll
-    static void setup() {
+    static void setup() throws Exception {
         container.start();
+
+        connection = DriverManager.getConnection(
+                container.getJdbcUrl(), container.getUsername(), container.getPassword());
+        Database database = DatabaseFactory.getInstance()
+                .findCorrectDatabaseImplementation(new JdbcConnection(connection));
+        liquibase = new Liquibase("db/db.changelog-master.xml",
+                new ClassLoaderResourceAccessor(), database);
+
+        liquibase.update(new Contexts());  // Применяем миграции
+//        liquibase.rollback("1.0", new Contexts());
     }
 
     @AfterAll
-    static void tearDown() {
+    static void tearDown() throws SQLException {
+        connection.close();
         container.close();
     }
 
     @BeforeEach
     void initDB() {
-        Car car = new Car("Porsche 911 Turbo (996)");
+        Car car = new Car("Porsche 911 Turbo (996)", 300);
         Player player = new Player("Ivan", "123456");
         player.getCars().add(car);
         car.getPlayers().add(player);
@@ -68,9 +88,10 @@ public class CRUDTest {
     @Test
     @Transactional
     void readTest() {
-        var car = carRepository.findByModel("Porsche 911 Turbo (996)").orElseThrow();
-        Player savedPlayer = playerRepository.findByName("Ivan").orElseThrow();
-        assertEquals("Porsche 911 Turbo (996)", savedPlayer.getCars().get(0).getModel());
+        Car car = carRepository.findByModel("Porsche 911 Turbo (996)").orElseThrow();
+        Player player = playerRepository.findByName("Ivan").orElseThrow();
+        assertEquals(300, car.getSpeed());
+        assertEquals("Porsche 911 Turbo (996)", player.getCars().get(0).getModel());
     }
 
 

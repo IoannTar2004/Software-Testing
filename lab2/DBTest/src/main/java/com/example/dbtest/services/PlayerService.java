@@ -18,6 +18,9 @@ public class PlayerService {
     }
 
     public void login(String name, String password) {
+        if (name.length() > 32 || name.length() < 4 || password.length() > 16 || password.length() < 4)
+            throw new RuntimeException("Произошла ошибка валидации");
+
         List<Player> players = playerRepository.findAll();
         boolean find = players.stream().anyMatch(p -> p.getName().equals(name) && p.getPassword().equals(password));
         if (!find)
