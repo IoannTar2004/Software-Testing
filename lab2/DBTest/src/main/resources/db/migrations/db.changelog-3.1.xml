@@ -1,0 +1,16 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+    <changeSet author="mikhail" id="changelog-3.0">
+        <sql >
+            update players set phone = null where phone is not null;
+        </sql>
+        <rollback/>
+    </changeSet>
+
+    <changeSet id="tag-3.1" author="ivan">
+        <tagDatabase tag="3.1" />
+    </changeSet>
+</databaseChangeLog>

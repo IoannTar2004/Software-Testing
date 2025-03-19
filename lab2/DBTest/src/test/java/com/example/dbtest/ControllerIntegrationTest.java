@@ -148,4 +148,10 @@ public class ControllerIntegrationTest {
         JSONObject response = new JSONObject(authorizationController.login(request1));
         assertEquals("Произошла ошибка валидации", response.get("status"));
     }
+
+    @Test
+    void phonesAreNullTests() {
+        boolean allNull = playerRepository.findAll().stream().allMatch(p -> p.getPhone() == null);
+        assertTrue(allNull);
+    }
 }

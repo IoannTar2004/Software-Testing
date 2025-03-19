@@ -68,7 +68,7 @@ public class CRUDTest {
                 new ClassLoaderResourceAccessor(), database);
 
         liquibase.update(new Contexts());  // Применяем миграции
-//        liquibase.rollback("1.0", new Contexts());
+        liquibase.rollback("1.0", new Contexts());
     }
 
     @AfterAll
