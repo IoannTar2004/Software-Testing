@@ -41,6 +41,8 @@ public class ControllerIntegrationTest {
         registry.add("spring.datasource.url", container::getJdbcUrl);
         registry.add("spring.datasource.username", container::getUsername);
         registry.add("spring.datasource.password", container::getPassword);
+        registry.add("spring.liquibase.change-log", () -> "classpath:db/db.changelog-master.xml");
+        registry.add("spring.liquibase.enabled", () -> true);
     }
 
     @BeforeAll

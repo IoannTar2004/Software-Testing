@@ -1,0 +1,21 @@
+name: CI for lab2
+
+on:
+  push:
+    branches: [migration]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v4
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 20
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+    - name: Tests
+      run: cd lab2/DBTest && gradle test
