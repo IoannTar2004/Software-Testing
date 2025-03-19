@@ -1,0 +1,19 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd">
+    <changeSet author="mikhail" id="changelog-3.0">
+        <addColumn tableName="players">
+            <column name="phone" type="varchar(16)" />
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="players" columnName="phone" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="tag-3.0" author="mikhail">
+        <tagDatabase tag="3.0" />
+    </changeSet>
+</databaseChangeLog>

@@ -17,14 +17,14 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String model;
-
     private int speed;
+    private int control;
 
-    public Car(String model, int speed) {
+    public Car(String model, int speed, int control) {
         this.model = model;
-        this.speed = speed;
+        this.speed = speed > 0 ? speed : 100;
+        this.control = control > 0 && control <= 100 ? control : 50;
     }
 
     public Car() {}

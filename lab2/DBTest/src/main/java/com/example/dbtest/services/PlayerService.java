@@ -27,8 +27,9 @@ public class PlayerService {
             throw new RuntimeException("Неверный логин или пароль");
     }
 
-    public void registration(String name, String password) {
-        if (name.length() > 32 || name.length() < 4 || password.length() > 16 || password.length() < 4)
+    public void registration(String name, String password, String phone) {
+        if (name.length() > 32 || name.length() < 4 || password.length() > 16 || password.length() < 4 ||
+            phone.length() < 4 || phone.length() > 16)
             throw new RuntimeException("Произошла ошибка валидации");
 
         List<Player> players = playerRepository.findAll();
@@ -36,6 +37,6 @@ public class PlayerService {
         if (find)
             throw new RuntimeException("Игрок с таким ником уже существует");
 
-         playerRepository.save(new Player(name, password));
+         playerRepository.save(new Player(name, password, phone));
     }
 }

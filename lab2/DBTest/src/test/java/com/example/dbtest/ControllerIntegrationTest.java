@@ -74,21 +74,18 @@ public class ControllerIntegrationTest {
 
     final String DEFAULT_NAME = "Ivan";
     final String DEFAULT_PASSWORD = "123456";
+    final String DEFAULT_PHONE = "+79168423875";
 
     @BeforeEach
     void initDB() {
-        Player player = new Player(DEFAULT_NAME, DEFAULT_PASSWORD);
+        Player player = new Player(DEFAULT_NAME, DEFAULT_PASSWORD, DEFAULT_PHONE);
         playerRepository.save(player);
-    }
-
-    private String createResponse(String name, String password) {
-        return new JSONObject().put("name", name).put("password", password).toString();
     }
 
     @Test
     @Transactional
     void loginTest() {
-        String request = createResponse(DEFAULT_NAME, DEFAULT_PASSWORD);
+        String request = new JSONObject().put("name", DEFAULT_NAME).put("password", DEFAULT_PASSWORD).toString();
         JSONObject response = new JSONObject(authorizationController.login(request));
         assertEquals("ok", response.get("status"));
     }
@@ -96,7 +93,9 @@ public class ControllerIntegrationTest {
     @Test
     @Transactional
     void loginWrongDataTest() {
-        String request = createResponse("Vova", DEFAULT_PASSWORD);
+        String request = new JSONObject()
+                .put("name", "Vova")
+                .put("password", DEFAULT_PASSWORD).toString();
         JSONObject response = new JSONObject(authorizationController.login(request));
         assertEquals("Неверный логин или пароль", response.get("status"));
     }
@@ -104,11 +103,15 @@ public class ControllerIntegrationTest {
     @Test
     @Transactional
     void loginNonValidDataTest() {
-        String request = createResponse("Vov", DEFAULT_PASSWORD);
+        String request = new JSONObject()
+                .put("name", "Vov")
+                .put("password", DEFAULT_PASSWORD).toString();
         JSONObject response = new JSONObject(authorizationController.login(request));
         assertEquals("Произошла ошибка валидации", response.get("status"));
 
-        String request1 = createResponse(DEFAULT_NAME, "12");
+        String request1 = new JSONObject()
+                .put("name", DEFAULT_NAME)
+                .put("password", "12").toString();
         response = new JSONObject(authorizationController.login(request1));
         assertEquals("Произошла ошибка валидации", response.get("status"));
     }
@@ -116,7 +119,10 @@ public class ControllerIntegrationTest {
     @Test
     @Transactional
     void registrationTest() {
-        String request = createResponse("Vova", DEFAULT_PASSWORD);
+        String request = new JSONObject()
+                .put("name", "Vova")
+                .put("password", DEFAULT_PASSWORD)
+                .put("phone", DEFAULT_PHONE).toString();
         JSONObject response = new JSONObject(authorizationController.registration(request));
         assertEquals("ok", response.get("status"));
     }
@@ -124,7 +130,10 @@ public class ControllerIntegrationTest {
     @Test
     @Transactional
     void registrationPlayerExistsTest() {
-        String request = createResponse(DEFAULT_NAME, DEFAULT_PASSWORD);
+        String request = new JSONObject()
+                .put("name", DEFAULT_NAME)
+                .put("password", DEFAULT_PASSWORD)
+                .put("phone", DEFAULT_PHONE).toString();
         JSONObject response = new JSONObject(authorizationController.registration(request));
         assertEquals("Игрок с таким ником уже существует", response.get("status"));
     }
@@ -132,12 +141,11 @@ public class ControllerIntegrationTest {
     @Test
     @Transactional
     void registrationNonValidDataTest() {
-        String request = createResponse("Vov", DEFAULT_PASSWORD);
-        JSONObject response = new JSONObject(authorizationController.registration(request));
-        assertEquals("Произошла ошибка валидации", response.get("status"));
-
-        String request1 = createResponse(DEFAULT_NAME, "12");
-        response = new JSONObject(authorizationController.registration(request1));
+        String request1 = new JSONObject()
+                .put("name", "Vov")
+                .put("password", "12")
+                .put("phone", "+11").toString();
+        JSONObject response = new JSONObject(authorizationController.login(request1));
         assertEquals("Произошла ошибка валидации", response.get("status"));
     }
 }

@@ -79,8 +79,8 @@ public class CRUDTest {
 
     @BeforeEach
     void initDB() {
-        Car car = new Car("Porsche 911 Turbo (996)", 300);
-        Player player = new Player("Ivan", "123456");
+        Car car = new Car("Porsche 911 Turbo (996)", 300, 92);
+        Player player = new Player("Ivan", "123456", "+79168423875");
         player.getCars().add(car);
         car.getPlayers().add(player);
         carRepository.save(car);

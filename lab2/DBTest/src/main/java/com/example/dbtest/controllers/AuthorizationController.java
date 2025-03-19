@@ -32,7 +32,10 @@ public class AuthorizationController {
     public String registration(@RequestParam(name = "data") String data) {
         try {
             JSONObject jsonObject = new JSONObject(data);
-            playerService.registration(jsonObject.getString("name"), jsonObject.getString("password"));
+            playerService.registration(
+                    jsonObject.getString("name"),
+                    jsonObject.getString("password"),
+                    jsonObject.getString("phone"));
             return new JSONObject().put("status", "ok").toString();
         } catch (RuntimeException e) {
             return new JSONObject().put("status", e.getMessage()).toString();

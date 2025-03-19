@@ -16,14 +16,14 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String name;
-
     private String password;
+    private String phone;
 
-    public Player(String name, String password) {
+    public Player(String name, String password, String phone) {
         this.name = name;
         this.password = password;
+        this.phone = phone;
     }
 
     public Player() {}
