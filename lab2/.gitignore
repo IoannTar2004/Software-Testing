@@ -1,8 +1,1 @@
-**/.gradle
-**/gradle
-.idea
-**/gradlew.bat
-**/gradlew
-**/settings.gradle
-**/build
 DBTest/src/main/resources/application.properties
