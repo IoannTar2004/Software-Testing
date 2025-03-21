@@ -1,23 +1,56 @@
 package org.example.math;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static java.lang.Math.PI;
-import static org.mockito.Mockito.when;
 
 public class TrigonometryTest {
+
+    static PrintWriter writer = null;
+
+    @BeforeEach
+    void writerOpen(TestInfo testInfo) throws IOException {
+        String path = "csv/trigonometry/" + testInfo.getTestMethod().orElseThrow().getName() + ".csv";
+        writer = new PrintWriter(new FileWriter(path, true));
+    }
+
+    @BeforeAll
+    static void clearCsv() throws IOException {
+        Path directory = Paths.get("csv/trigonometry");
+
+        if (Files.exists(directory) && Files.isDirectory(directory)) {
+            try (var files = Files.list(directory)) {
+                files.forEach(file -> {
+                    try {
+                        Files.delete(file);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        }
+    }
+
+    @AfterEach
+    void writerClose() {
+        writer.close();
+    }
 
     @ParameterizedTest
     @CsvSource({
@@ -28,7 +61,7 @@ public class TrigonometryTest {
             "7, 5040"
     })
     void factorialTest(int x, long expected) {
-        long result = new Sine().factorial(x);
+        long result = Sine.factorial(x);
         assertEquals(expected, result);
     }
 
@@ -42,8 +75,9 @@ public class TrigonometryTest {
             "-10000, 0.306"
     })
     void sinTest(double x, double expected) {
-        double result = new Sine().sin(x);
+        double result = Sine.sin(x);
         assertEquals(expected, result, 0.001);
+        Sine.writeToCSV(writer, x, x * 0.5, 5);
     }
 
     @ParameterizedTest
@@ -56,12 +90,14 @@ public class TrigonometryTest {
             "-10000, 0.952, 0.306"
     })
     void cosTest(double x, double expected, double sin) {
-        try(MockedConstruction<Sine> mockedSine = Mockito.mockConstruction(Sine.class,
-                (mock, context) -> when(mock.sin(x)).thenReturn(sin))) {
+        try (MockedStatic<Sine> mockedSine = Mockito.mockStatic(Sine.class)) {
+            mockedSine.when(() -> Sine.sin(x)).thenReturn(sin);
 
-            double result = new Cosine().cos(x);
+            double result = Cosine.cos(x);
             assertEquals(expected, result, 0.001);
         }
+
+        Cosine.writeToCSV(writer, x, x * 0.5, 5);
     }
 
     @ParameterizedTest
@@ -73,20 +109,23 @@ public class TrigonometryTest {
             "1.581, -100, 0.99995, -0.009999"
     })
     void tgTest(double x, double expected, double sin, double cos) {
-        try(MockedConstruction<Sine> mockedSine = Mockito.mockConstruction(Sine.class,
-                (mock, context) -> when(mock.sin(x)).thenReturn(sin));
-            MockedConstruction<Cosine> mockedCosine = Mockito.mockConstruction(Cosine.class,
-                    (mock, context) -> when(mock.cos(x)).thenReturn(cos))) {
+        try (MockedStatic<Sine> mockedSine = Mockito.mockStatic(Sine.class);
+             MockedStatic<Cosine> mockedCosine = Mockito.mockStatic(Cosine.class)) {
 
-            double result = new Trigonometry().tg(x);
+            mockedSine.when(() -> Sine.sin(x)).thenReturn(sin);
+            mockedCosine.when(() -> Cosine.cos(x)).thenReturn(cos);
+
+            double result = Trigonometry.tg(x);
             assertEquals(expected, result, 0.01);
         }
+
+        Trigonometry.writeToCSV(writer, x, x * 0.5, 5, Trigonometry::tg, "X,tg(X)");
     }
 
     @ParameterizedTest
-    @ValueSource(doubles = {PI / 2, -PI / 2, 5 * PI / 2, -5 * PI / 2})
+    @ValueSource(doubles = {Math.PI / 2, -Math.PI / 2, 5 * Math.PI / 2, -5 * Math.PI / 2})
     void tgTestIllegalArgument(double x) {
-        assertThrows(IllegalArgumentException.class, () -> new Trigonometry().tg(x));
+        assertThrows(IllegalArgumentException.class, () -> Trigonometry.tg(x));
     }
 
     @ParameterizedTest
@@ -98,20 +137,23 @@ public class TrigonometryTest {
             "-0.01, -100, 0.99995, -0.009999"
     })
     void ctgTest(double x, double expected, double cos, double sin) {
-        try(MockedConstruction<Sine> mockedSine = Mockito.mockConstruction(Sine.class,
-                (mock, context) -> when(mock.sin(x)).thenReturn(sin));
-            MockedConstruction<Cosine> mockedCosine = Mockito.mockConstruction(Cosine.class,
-                    (mock, context) -> when(mock.cos(x)).thenReturn(cos))) {
+        try (MockedStatic<Cosine> mockedCosine = Mockito.mockStatic(Cosine.class);
+             MockedStatic<Sine> mockedSine = Mockito.mockStatic(Sine.class)) {
 
-            double result = new Trigonometry().ctg(x);
+            mockedCosine.when(() -> Cosine.cos(x)).thenReturn(cos);
+            mockedSine.when(() -> Sine.sin(x)).thenReturn(sin);
+
+            double result = Trigonometry.ctg(x);
             assertEquals(expected, result, 0.01);
         }
+
+        Trigonometry.writeToCSV(writer, x, x * 0.5, 5, Trigonometry::ctg, "X,ctg(X)");
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {0, Math.PI, 5 * Math.PI, -5 * Math.PI})
     void ctgTestIllegalArgument(double x) {
-        assertThrows(IllegalArgumentException.class, () -> new Trigonometry().ctg(x));
+        assertThrows(IllegalArgumentException.class, () -> Trigonometry.ctg(x));
     }
 
     @ParameterizedTest
@@ -122,17 +164,20 @@ public class TrigonometryTest {
             "-0.785, -1.414, -0.707"
     })
     void cscTest(double x, double expected, double sin) {
-        try(MockedConstruction<Sine> mockedSine = Mockito.mockConstruction(Sine.class,
-                (mock, context) -> when(mock.sin(x)).thenReturn(sin))) {
+        try (MockedStatic<Sine> mockedSine = Mockito.mockStatic(Sine.class)) {
+            mockedSine.when(() -> Sine.sin(x)).thenReturn(sin);
 
-            double result = new Trigonometry().csc(x);
+            double result = Trigonometry.csc(x);
             assertEquals(expected, result, 0.001);
         }
+
+        Trigonometry.writeToCSV(writer, x, x * 0.5, 5, Trigonometry::csc, "X,csc(X)");
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {0, Math.PI, 5 * Math.PI, -5 * Math.PI})
     void cscTestIllegalArgument(double x) {
-        assertThrows(IllegalArgumentException.class, () -> new Trigonometry().csc(x));
+        assertThrows(IllegalArgumentException.class, () -> Trigonometry.csc(x));
     }
+
 }

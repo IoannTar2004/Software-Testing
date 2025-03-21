@@ -15,8 +15,7 @@ public class FunctionSystemsTest {
             "-0.001, -1000000"
     })
     void strangeFunctionTestLE(double x, double expected) {
-        FunctionSystems functionSystems = new FunctionSystems();
-        double result = functionSystems.strangeFunction(x);
+        double result = FunctionSystems.strangeFunction(x);
         assertEquals(expected, result, 1);
     }
 
@@ -27,8 +26,7 @@ public class FunctionSystemsTest {
             "23.57, -0.052"
     })
     void strangeFunctionTestG(double x, double expected) {
-        FunctionSystems functionSystems = new FunctionSystems();
-        double result = functionSystems.strangeFunction(x);
+        double result = FunctionSystems.strangeFunction(x);
         assertEquals(expected, result, 1);
     }
 }

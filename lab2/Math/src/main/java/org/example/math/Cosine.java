@@ -1,12 +1,14 @@
 package org.example.math;
 
+import java.io.PrintWriter;
+
 public class Cosine {
 
-    public double cos(double x) {
+    public static double cos(double x) {
         return Math.sqrt(1 - Math.pow(new Sine().sin(x), 2));
     }
 
-    public void writeToCSV(String filename, double begin, double step, int count) {
-        CSVWriter.write(filename, begin, step, count, this::cos, "X,cos(X)");
+    public static void writeToCSV(PrintWriter writer, double begin, double step, int count) {
+        CSVWriter.write(writer, begin, step, count, Cosine::cos, "X,cos(X)");
     }
 }

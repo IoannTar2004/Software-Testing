@@ -1,8 +1,10 @@
 package org.example.math;
 
+import java.io.PrintWriter;
+
 public class NaturalLog {
 
-    public double ln(double x) {
+    public static double ln(double x) {
         if (x <= 0) throw new IllegalArgumentException();
         if (x == 1) return 0;
 
@@ -17,7 +19,7 @@ public class NaturalLog {
         return result;
     }
 
-    public void writeToCSV(String filename, double begin, double step, int count) {
-        CSVWriter.write(filename, begin, step, count, this::ln, "X,ln(X)");
+    public static void writeToCSV(PrintWriter writer, double begin, double step, int count) {
+        CSVWriter.write(writer, begin, step, count, NaturalLog::ln, "X,ln(X)");
     }
 }

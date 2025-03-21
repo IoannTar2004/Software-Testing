@@ -1,14 +1,17 @@
 package org.example.math;
 
+import java.io.PrintWriter;
+
+import static org.example.math.NaturalLog.ln;
+
 public class Logarithm {
 
-    public double log(double base, double x) {
+    public static double log(double base, double x) {
         if (base == 0 || base == 1) throw new IllegalArgumentException();
-        NaturalLog ln = new NaturalLog();
-        return ln.ln(x) / ln.ln(base);
+        return ln(x) / ln(base);
     }
 
-    public void writeToCSV(String filename, double base, double begin, double step, int count) {
-        CSVWriter.write(filename, base, begin, step, count, this::log, "Base,X,ln(X)");
+    public static void writeToCSV(PrintWriter writer, double base, double begin, double step, int count) {
+        CSVWriter.write(writer, base, begin, step, count, Logarithm::log, "Base,X,ln(X)");
     }
 }

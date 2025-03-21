@@ -1,10 +1,12 @@
 package org.example.math;
 
+import java.io.PrintWriter;
+
 import static java.lang.Math.pow;
 
 public class Sine {
 
-    public long factorial(int x) {
+    public static long factorial(int x) {
         if (x <= 1) return 1;
         long result = x;
         for (int i = x - 1; i > 1; i--)
@@ -12,7 +14,7 @@ public class Sine {
 
         return result;
     }
-    public double sin(double x) {
+    public static double sin(double x) {
         x %= 2 * Math.PI;
         double result = 0;
         for (int i = 0; i < 10; i++)
@@ -21,7 +23,7 @@ public class Sine {
         return result;
     }
 
-    public void writeToCSV(String filename, double begin, double step, int count) {
-        CSVWriter.write(filename, begin, step, count, this::sin, "X,sin(X)");
+    public static void writeToCSV(PrintWriter writer, double begin, double step, int count) {
+        CSVWriter.write(writer, begin, step, count, Sine::sin, "X,sin(X)");
     }
 }
