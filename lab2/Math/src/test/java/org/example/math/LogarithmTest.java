@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedConstruction;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +18,7 @@ public class LogarithmTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/lnTest.txt")
     void lnTest(double x, double expected) {
-        double result = new NaturalLog().ln(x);
+        double result = NaturalLog.ln(x);
         assertEquals(expected, result, 0.05);
     }
 
@@ -28,7 +29,7 @@ public class LogarithmTest {
         "300000, 12.611, 5"
     })
     void lnTestDiverge(double x, double expected, double div) {
-        double result = new NaturalLog().ln(x);
+        double result = NaturalLog.ln(x);
         assertEquals(expected, result, div);
     }
 
@@ -39,7 +40,7 @@ public class LogarithmTest {
             "2.32, 105, 5.53, 0.842, 4.654"
     })
     void logTest(double base, double x, double expected, double baseStub, double xStub) {
-        try(MockedConstruction<NaturalLog> mockedLn = Mockito.mockConstruction(NaturalLog.class,
+        try(MockedStatic<NaturalLog> mockedLn = Mockito.mockStatic(NaturalLog.class,
                 (mock, context) -> {
                     when(mock.ln(base)).thenReturn(baseStub);
                     when(mock.ln(x)).thenReturn(xStub);

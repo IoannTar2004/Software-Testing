@@ -8,9 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DbTestApplication {
 
-    @Autowired
-    private static PlayerRepository playerRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(DbTestApplication.class, args);
     }
