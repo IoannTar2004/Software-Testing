@@ -9,7 +9,6 @@ import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LogarithmTest {
 
-    static PrintWriter writer = null;
+    PrintWriter writer = null;
 
     @BeforeEach
     void writerOpen(TestInfo testInfo) throws IOException {

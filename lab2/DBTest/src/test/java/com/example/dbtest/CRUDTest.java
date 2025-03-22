@@ -10,7 +10,6 @@ import liquibase.Liquibase;
 import liquibase.database.Database;
 import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -68,7 +67,7 @@ public class CRUDTest {
                 new ClassLoaderResourceAccessor(), database);
 
         liquibase.update(new Contexts());  // Применяем миграции
-        liquibase.rollback("1.0", new Contexts());
+//        liquibase.rollback("1.0", new Contexts());
     }
 
     @AfterAll

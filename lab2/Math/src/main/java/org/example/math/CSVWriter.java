@@ -1,9 +1,6 @@
 package org.example.math;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.nio.channels.FileChannel;
 import java.util.Locale;
 import java.util.function.BiFunction;
 import java.util.function.Function;

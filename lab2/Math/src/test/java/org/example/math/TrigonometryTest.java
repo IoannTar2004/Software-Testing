@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrigonometryTest {
 
-    static PrintWriter writer = null;
+    PrintWriter writer = null;
 
     @BeforeEach
     void writerOpen(TestInfo testInfo) throws IOException {

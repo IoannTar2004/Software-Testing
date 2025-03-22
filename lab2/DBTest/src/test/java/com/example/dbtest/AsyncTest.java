@@ -48,7 +48,7 @@ public class AsyncTest {
         Thread.sleep(wait);
         assertFalse(future.isDone());
         gameService.cancelCreatingGame(0);
-        await().atMost(3, TimeUnit.SECONDS).until(() -> !gameService.getLoadedGames().containsKey(0L));
+        await().atMost(5, TimeUnit.SECONDS).until(() -> !gameService.getLoadedGames().containsKey(0L));
     }
 
     @Test

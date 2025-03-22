@@ -1,5 +1,6 @@
 package org.example.math;
 
+import java.io.PrintWriter;
 import java.util.function.Function;
 
 import static java.lang.Math.pow;
@@ -17,8 +18,8 @@ public class FunctionSystems {
                 (pow(log(5, x) / (2 * log(3, x)), 3) * log(5, x));
     }
 
-//    public void writeToCSV(String filename, double begin, double step, int count, Function<Double, Double> f,
-//                           String headers) {
-//        CSVWriter.write(filename, begin, step, count, f, headers);
-//    }
+    public static void writeToCSV(PrintWriter writer, double begin, double step, int count, Function<Double, Double> f,
+                           String headers) {
+        CSVWriter.write(writer, begin, step, count, f, headers);
+    }
 }
