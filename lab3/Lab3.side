@@ -1,0 +1,183 @@
+{
+  "id": "f314985e-2664-4977-8a93-ec8fd247bb07",
+  "version": "2.0",
+  "name": "Lab3",
+  "url": "https://mail.ru",
+  "tests": [{
+    "id": "3ab15b02-8082-4467-ba08-667a72d36488",
+    "name": "yandexSearchTest",
+    "commands": [{
+      "id": "697c6aff-4222-4dba-814b-dd4989375a69",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df267ead-e68f-43ce-9a5e-38b3a5089a97",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x896",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8e4729db-76f5-4d16-b1f4-740abf7f9c1f",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "n",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a70ae30-7d97-45ad-a201-998f03c94259",
+      "comment": "",
+      "command": "type",
+      "target": "",
+      "targets": [],
+      "value": "пробки"
+    }, {
+      "id": "02701d11-0c81-49b7-a042-339d81f00186",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(text(), 'Найти')]",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62bbb898-187c-492e-9f9e-4956014606ca",
+      "comment": "",
+      "command": "waitForText",
+      "target": "xpath=//b[contains(text(), 'Пробки')]",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "5bd03a5b-adef-4e3d-98e8-7edfb72ef7f6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "76c14acd-f765-4b15-8e0e-377dcfd02c16",
+    "name": "w",
+    "commands": [{
+      "id": "c031e983-65df-4a0e-8673-aa33d291e39a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bfbe719f-b13f-499d-baae-e633340646b1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x896",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c396cd0-35fe-41f3-a8c8-a900d71c4689",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "e280fd26-e310-4c94-aa74-e6a114781f70",
+      "comment": "",
+      "command": "type",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=.arrow__input", "css:finder"],
+        ["xpath=//input[@name='text']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "пробки"
+    }, {
+      "id": "38d7b952-c2c2-4438-83ab-9255d99c788b",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fe18654-1a87-4ede-a2cc-128475503f70",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search-arrow__button",
+      "targets": [
+        ["css=.search-arrow__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//main[@id='grid']/div[2]/div[3]/div/div/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//form/div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Найти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e113697-69ce-442e-b3ab-c161c919b241",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.search-arrow__button",
+      "targets": [
+        ["css=.search-arrow__button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//main[@id='grid']/div[2]/div[3]/div/div/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//form/div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Найти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a6c9e41-8608-45eb-aa14-8ea61e97c97d",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "7acb855b-6bf4-45d1-8d6d-443339093d84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.serp-item:nth-child(4) .OrganicTitle",
+      "targets": [
+        ["css=.serp-item:nth-child(4) .OrganicTitle", "css:finder"],
+        ["xpath=//ul[@id='search-result']/li[2]/div/div", "xpath:idRelative"],
+        ["xpath=//li[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76316f26-3d5b-4a1a-a6fb-f43b40280d61",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.serp-item:nth-child(4) .VanillaReact b",
+      "targets": [
+        ["css=.serp-item:nth-child(4) .VanillaReact b", "css:finder"],
+        ["xpath=//ul[@id='search-result']/li[2]/div/div/a/h2/span/b", "xpath:idRelative"],
+        ["xpath=//b", "xpath:position"],
+        ["xpath=//b[contains(.,'Пробки')]", "xpath:innerText"]
+      ],
+      "value": "Пробки"
+    }, {
+      "id": "d6e98280-a625-4f10-9d81-65cee632affc",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "53788094-e20d-4854-b9c0-96d265c74d39",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://mail.ru/"],
+  "plugins": []
+}
