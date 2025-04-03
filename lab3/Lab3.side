@@ -169,6 +169,101 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "e04d3203-a1f5-46fa-ba1c-681f56ef16e2",
+    "name": "weatherTest",
+    "commands": [{
+      "id": "59606192-85fc-41ae-b563-5ed4f06a1379",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1e94a76e-0083-4c37-a06c-0c6e4b0132b8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x928",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b505bba1-2544-4e70-b161-58199fa30ff6",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(@href, 'pogoda.mail.ru')]",
+      "targets": [
+        ["css=.weather__header-link", "css:finder"],
+        ["xpath=//main[@id='grid']/div[2]/div[3]/div/div[5]/div[2]/div/div/div/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://pogoda.mail.ru/prognoz/sankt_peterburg/')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94dc48e0-0aaf-43d1-a667-4b7e708ad018",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//span[contains(., 'Прогноз по часам')]",
+      "targets": [
+        ["css=.weather-tabs__item:nth-child(2) > .fkagfdf__88dymm", "css:finder"],
+        ["xpath=//main[@id='grid']/div[2]/div[3]/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/div/div/div/div/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/div/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Прогноз по часам')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e6fa102-0c53-4e92-a474-cae441d9c752",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее",
+      "targets": [
+        ["linkText=Подробнее", "linkText"],
+        ["css=.extended-header__more", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее')]", "xpath:link"],
+        ["xpath=//main[@id='grid']/div[2]/div[3]/div/div[5]/div[2]/div/div/div/div/div/div/div[3]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://pogoda.mail.ru/prognoz/sankt_peterburg/')]", "xpath:href"],
+        ["xpath=//div/div/div[3]/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win8455",
+      "windowTimeout": 2000
+    }, {
+      "id": "bb215f85-2abf-4c8d-b0c5-01b284a9a5fd",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5982b146-24c3-46bf-b371-1a10586edf46",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win8455}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62ef17d9-3c2e-41c2-a2f9-cca039f25d73",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38bfcd7e-43ea-4be5-90a5-7b886ae441f2",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win8455}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4797e059-bfe1-4402-8207-17a22372daea",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "53788094-e20d-4854-b9c0-96d265c74d39",

@@ -1,4 +1,4 @@
-package org.exmple.mailRu;
+package org.example.mailRu;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,10 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.*;
@@ -17,18 +13,17 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MailRuMainTests {
+
     static WebDriver driver;
 
     @BeforeAll
     static void setUp() {
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
+        driver.manage().deleteAllCookies();
     }
 
     @AfterAll
     static void tearDown() {
-        driver.close();
         driver.quit();
     }
 
@@ -54,11 +49,12 @@ public class MailRuMainTests {
     @Test
     public void loginTest() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().setSize(new Dimension(1054, 896));
+        driver.manage().window().maximize();
         driver.findElement(By.xpath("//button[contains(., 'Войти')]")).click();
-        driver.switchTo().frame(5);
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src, 'account.mail.ru')]")));
         driver.findElement(By.xpath("//span[contains(@class, 'ProvidersListItemIconYandex')]")).click();
-        driver.findElement(By.xpath("//input[@name='username']")).sendKeys("iwan.tarasow2013");
+
+        driver.findElement(By.xpath("//input[@placeholder='Имя аккаунта']")).sendKeys("iwan.tarasow2013");
         driver.findElement(By.xpath("//span[contains(., 'Продолжить')]")).click();
         driver.switchTo().defaultContent();
         driver.findElement(By.xpath("//button[contains(@class, 'Button2')]")).click();
@@ -69,9 +65,9 @@ public class MailRuMainTests {
 
     @Test
     public void createMailTest() {
-        driver.get("https://mail.ru/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.manage().window().setSize(new Dimension(1054, 896));
+        driver.manage().window().maximize();
+
         driver.findElement(By.linkText("Создать почту")).click();
         Set<String> windowHandles = driver.getWindowHandles();
         driver.switchTo().window(new ArrayList<>(windowHandles).get(1));
@@ -86,22 +82,20 @@ public class MailRuMainTests {
         driver.findElement(By.xpath("//button[contains(@type, submit)]")).click();
     }
 
-//    @Test
-//    public void newsTest(){
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//        driver.manage().window().maximize();
-//        driver.findElement(By.xpath("//a[contains(@class, 'news-main')]")).click();
-//
-//        Set<String> windowHandles = driver.getWindowHandles();
-//        driver.switchTo().window(new ArrayList<>(windowHandles).get(1));
-//        driver.findElement(By.xpath("//span[contains(., 'Новости')]")).getText();
-//        driver.close();
-//    }
+    @Test
+    public void newsTest(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
+        driver.findElement(By.xpath("//a[contains(@class, 'news-main')]")).click();
+
+        Set<String> windowHandles = driver.getWindowHandles();
+        driver.switchTo().window(new ArrayList<>(windowHandles).get(1));
+        driver.findElement(By.xpath("//a[contains(., 'Новости')]")).getText();
+    }
 
     @Test
     public void darkThemeTest() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://mail.ru/");
         driver.manage().window().maximize();
         driver.findElement(By.cssSelector(".ph-settings-container")).click();
         driver.findElement(By.cssSelector(".ph-theme-choice__item:nth-child(2) .StylishRadioButton")).click();
@@ -110,8 +104,17 @@ public class MailRuMainTests {
 
         driver.findElement(By.cssSelector(".ph-settings-container")).click();
         driver.findElement(By.cssSelector(".ph-theme-choice__item:nth-child(3) .StylishRadioButton")).click();
-        System.out.println(driver.findElement(By.tagName("body")).getCssValue("background-color"));
         assertEquals("rgba(255, 255, 255, 1)", driver.findElement(By.tagName("body"))
                 .getCssValue("background-color"));
+    }
+
+    @Test
+    public void weatherTest() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.findElement(By.cssSelector(".weather__arrow")).click();
+        driver.findElement(By.xpath("//div[contains(., 'Завтра')]"));
+        driver.findElement(By.xpath("//span[contains(., 'Прогноз по часам')]")).click();
+        driver.findElement(By.linkText("Подробнее")).click();
     }
 }
