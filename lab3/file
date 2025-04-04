@@ -1,0 +1,260 @@
+[0mGET /__/ [32m200 [0m9.034 ms - -[0m
+[0mGET /__/assets/polyfills-B8CJjhRv.js [32m200 [0m6.502 ms - -[0m
+[0mGET /__/assets/index-BOik9Ajq.css [32m200 [0m5.683 ms - -[0m
+[0mGET /__/assets/index-2fuRUm5q.js [32m200 [0m2.421 ms - -[0m
+[0mGET /__cypress/runner/cypress_runner.css [32m200 [0m2.742 ms - -[0m
+[0mGET /__/assets/chevron-right_x16-C1Lu0bq5.js [32m200 [0m5.672 ms - 451[0m
+[0mGET /__/assets/chevron-right-small_x16-KTlGGcYH.css [32m200 [0m20.143 ms - 219[0m
+[0mGET /__/assets/default-X1MPpkdc.js [32m200 [0m3.068 ms - -[0m
+[0mGET /__/assets/Tooltip-D6iHgULj.css [32m200 [0m30.312 ms - -[0m
+[0mGET /__/assets/action-record_x16-BLdIZmdN.css [32m200 [0m10.586 ms - 291[0m
+[0mGET /__/assets/default-BH0LNFW5.css [32m200 [0m11.471 ms - 363[0m
+[0mGET /__/assets/browserLogos-Dr23JQUO.js [32m200 [0m8.594 ms - 489[0m
+[0mGET /__/assets/Index-BlBgAPh9.css [32m200 [0m8.537 ms - -[0m
+[0mGET /__/assets/cypress-dark-Cng83Qdd.js [32m200 [0m8.302 ms - -[0m
+[0mGET /__/assets/cypress-logo_x16-DgHgrPoh.js [32m200 [0m14.729 ms - -[0m
+[0mGET /__/assets/day-BT5YbQ6C.js [32m200 [0m12.016 ms - -[0m
+[0mGET /__/assets/chevron-right-small_x16-YFrFKpP-.js [32m200 [0m42.222 ms - -[0m
+[0mGET /__/assets/status-errored-outline_x16-B0IHJlTm.js [32m200 [0m16.342 ms - 852[0m
+[0mGET /__/assets/useMarkdown-DeNw6iPJ.js [32m200 [0m42.258 ms - -[0m
+[0mGET /__/assets/document-text_x16-BISy70Dh.js [32m200 [0m13.779 ms - 763[0m
+[0mGET /__/assets/OpenFileInIDE.vue_vue_type_script_setup_true_lang-Rb26aN60.js [32m200 [0m15.154 ms - -[0m
+[0mGET /__/assets/isWindows-BB1jO4nZ.js [32m200 [0m12.229 ms - 161[0m
+[0mGET /__/assets/useRelevantRun-Dr8TN8Zw.js [32m200 [0m14.452 ms - -[0m
+[0mGET /__/assets/index.es-Df2sfJ5Z.js [32m200 [0m8.300 ms - -[0m
+[0mGET /__/assets/Tooltip.vue_vue_type_style_index_0_lang-DBKbsfX7.js [32m200 [0m14.848 ms - -[0m
+[0mGET /__/assets/Specs-BJJMP_sr.js [32m200 [0m12.260 ms - 252[0m
+[0mGET /__/assets/route-block-B_A1xBdJ.js [32m200 [0m11.609 ms - 27[0m
+[0mGET /__/assets/TrackedBanner.vue_vue_type_script_setup_true_lang-BHj0N7b3.js [32m200 [0m13.203 ms - -[0m
+[0mGET /__/assets/Index-CYOgnAtf.js [32m200 [0m15.315 ms - -[0m
+[0mGET /__/assets/box-open_x48-WEKBHc5l.js [32m200 [0m8.554 ms - -[0m
+[0mGET /__/assets/action-record_x16-tRJbQmrj.js [32m200 [0m9.616 ms - -[0m
+[0mGET /__/assets/SpecPatterns.vue_vue_type_script_setup_true_lang-DJLtwLb9.js [32m200 [0m5.388 ms - -[0m
+[0mGET /__/assets/graphql-BM8rtIyM.js [32m200 [0m12.386 ms - -[0m
+[0mGET /__/assets/PromoHeader.vue_vue_type_script_setup_true_lang-DZ-8-5ER.js [32m200 [0m8.176 ms - -[0m
+[0mGET /__/assets/SpecNameDisplay.vue_vue_type_script_setup_true_lang-CSoBZ6Tn.js [32m200 [0m8.976 ms - -[0m
+[0mGET /__/assets/settings_x16-8oAwx9V_.js [32m200 [0m6.317 ms - -[0m
+[0mGET /__/assets/cypress_s-oVtifuuw.png [32m200 [0m1.308 ms - 4425[0m
+[0mGET /__cypress/runner/cypress_runner.js [32m200 [0m3.860 ms - -[0m
+[0mGET /__/assets/Switch.vue_vue_type_script_setup_true_lang-BZWvLIyt.js [32m200 [0m2.175 ms - -[0m
+[0mGET /__/assets/refresh_x16-fr49NEAy.js [32m200 [0m2.255 ms - -[0m
+[0mGET /__/assets/Runner-O8gchaFy.css [32m200 [0m2.193 ms - -[0m
+[0mGET /__/assets/Runner-Bu_ZsWOn.js [32m200 [0m3.056 ms - -[0m
+[0mGET /__cypress-studio/app-studio.js [32m200 [0m0.206 ms - 0[0m
+[0mGET /__cypress/iframes/cypress%2Fe2e%2FmailRuInAccountTests.cy.js?browserFamily=chromium [32m200 [0m18.131 ms - -[0m
+[0mGET /__cypress/iframes/cypress%2Fe2e%2FmailRuInAccountTests.cy.js?browserFamily=chromium [32m200 [0m2.364 ms - -[0m
+[0mGET /__cypress/tests?p=cypress/e2e/mailRuInAccountTests.cy.js [32m200 [0m866.281 ms - -[0m
+[0mGET /__cypress/tests?p=cypress/support/e2e.js [32m200 [0m910.085 ms - -[0m
+[0mGET / [32m200 [0m40.131 ms - -[0m
+[0mGET /static/logo/rebranding/logo_dark_mail.svg [32m200 [0m95.619 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/external.css [32m200 [0m109.081 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/inline.modern.js [32m200 [0m111.589 ms - -[0m
+[0mGET /pkgs/account.mail.ru/fmail-26775.471001/css/index.min.css [32m200 [0m144.192 ms - -[0m
+[0mGET /hb/e.mail.ru/auth.gate/2.11.0/authGate.js?onload=__AG_onload [32m200 [0m60.571 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl [32m200 [0m37.041 ms - -[0m
+[0mGET /update?p=account&t=rawload_stat&v=1&email=&i=_:1 [32m200 [0m146.560 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/external.modern.js [32m200 [0m63.351 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl&parent_pgid= [32m200 [0m105.921 ms - -[0m
+[0mGET /hb/e.mail.ru/@mail-core/logger-preset/base.js?&v17.1.0&pv=17.1.0&f=1743778800000-0 [32m200 [0m58.652 ms - -[0m
+[0mGET /js/code.js [32m200 [0m202.033 ms - -[0m
+[0mGET /NaviData?mac=1&Socials=1&ldata=1&target=1&_=1744753627070 [32m200 [0m90.805 ms - -[0m
+[0mGET /pkgs/account.mail.ru/fmail-26775.471001/js/ru_RU/main.js [32m200 [0m35.645 ms - -[0m
+[0mGET /js/dyn-goal-config.js?ids=3118422 [36m302 [0m1.944 ms - 26[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl&parent_pgid= [36m302 [0m0.841 ms - 26[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl&parent_pgid= [36m302 [0m0.930 ms - 26[0m
+[0mPOST /api/v1/user/short [36m302 [0m1.236 ms - 26[0m
+[0mGET / [36m302 [0m1.198 ms - 33[0m
+[0mGET /ns.gif?n=417885329,417885333,417885332,417885365,417885323,417885358,417885320,417885373&_=1744678644280 [32m200 [0m208.206 ms - -[0m
+[0mGET /bulkstat/?type=imp&banner_ids=61021862,61021861,61021860,61021859,61021858,61021857,61021856,61021854&_=1743833799354 [32m200 [0m203.166 ms - -[0m
+[0mGET /whiteline/assets/project-icons/580CED.svg [32m200 [0m224.017 ms - -[0m
+[0mGET /i/o4lsx4?mt_sub1=account.mail.ru [32m200 [0m220.777 ms - -[0m
+[0mGET /__/ [32m200 [0m21.719 ms - -[0m
+[0mGET /i/jlsxn4?mt_sub1=account.mail.ru [32m200 [0m230.757 ms - -[0m
+[0mGET /i/sccve9?mt_sub1=account.mail.ru [36m302 [0m0.592 ms - 26[0m
+[0mGET /i/koydy6?mt_sub1=account.mail.ru [32m200 [0m236.730 ms - -[0m
+[0mGET /i/f0dxi9?mt_sub1=account.mail.ru [32m200 [0m243.090 ms - -[0m
+[0mGET /i/z1q4a7?mt_sub1=account.mail.ru [32m200 [0m138.924 ms - -[0m
+[0mGET /__/ [32m200 [0m18.221 ms - -[0m
+[0mGET /i/k9iu14?mt_sub1=account.mail.ru [36m302 [0m0.709 ms - 26[0m
+[0mGET /i/whc548?mt_sub1=account.mail.ru [36m302 [0m0.634 ms - 26[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl&parent_pgid= [36m302 [0m0.915 ms - 26[0m
+[0mGET /static/fonts/v1.100/VKSansDisplay/WOFF2/VKSansDisplayRegular.woff2 [32m200 [0m63.607 ms - -[0m
+[0mGET /counter?_=0.034223228452744836;id=3118422;u=https%3A%2F%2Faccount.mail.ru%2F;title=Account%20Mail.Ru;s=1920*1200;vp=1920*1080;touch=0;hds=1;sid=145eb60bcd12aa87;ver=60.6.0;tz=-180%2FEurope%2FMoscow;st=undefined;ct=531/537/537//288;rt=288/216/0/0/0/288/288/288/291/299/292/299/503/504;gl=u;ni=8.85//4g/50/0/;detect=0;lvid=1743448879761%3A1743779024389%3A1%3A288b69f8fa06d7261cd7b8b32e5e32ab;opts=frame%2Cwda%2Ccnhp%3Dhttp%2F1.1%2Ccs%3D19238-47446-19538;fpid=l9uVaDGBrqeHyYZQZ8jvq;visible=true;js=13 [36m302 [0m0.749 ms - 26[0m
+[0mGET /pkgs/react.env/2.0.0/ru_RU/react-env.bundle.js [32m200 [0m37.622 ms - -[0m
+[0mGET /static/fonts/v1.100/VKSansText/WOFF2/VKSansTextBold.woff2 [33m404 [0m28.369 ms - -[0m
+[0mGET /__/ [32m200 [0m24.572 ms - -[0m
+[0mGET /__/ [32m200 [0m22.629 ms - -[0m
+[0mPOST /batch?p=whiteline&pgid=m92x0aad.af9 [36m302 [0m0.772 ms - 26[0m
+[0mGET /__/ [32m200 [0m24.743 ms - -[0m
+[0mGET /static/fonts/v1.100/VKSansText/WOFF2/VKSansTextRegular.woff2 [33m404 [0m103.584 ms - -[0m
+[0mGET /static/fonts/v1.100/VKSansDisplay/WOFF2/VKSansDisplayBold.woff2 [32m200 [0m130.685 ms - -[0m
+[0mGET /__/ [32m200 [0m16.351 ms - -[0m
+[0mGET /__/ [32m200 [0m17.983 ms - -[0m
+[0mGET /hb/e.mail.ru/2kit/2.3.0/2kit.js [32m200 [0m25.424 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0a3o.kgl&parent_pgid= [36m302 [0m0.977 ms - 26[0m
+[0mGET /__/ [32m200 [0m18.181 ms - -[0m
+[0mGET /__/ [32m200 [0m14.399 ms - -[0m
+[0mGET /__/ [32m200 [0m16.362 ms - -[0m
+[0mGET /__/ [32m200 [0m2.030 ms - -[0m
+[0mGET /d26047874.gif?sz=49&rnd=182629340&ts=1743779025&sz=49 [0m- [0m- ms - -[0m
+[0mGET /pixel/AAC3-wEhHRBF1xM0amvl1pwHbJypN1w2n6SyyQdUCSryNQ_PlqEwwp_0c-8nSs89GBfgHax74KToFWs4ck1NxAK5D6nm18llm-rpe20XvGgeN-c-sXwBpHqtuWBOaovkG0GnfB8S_2kobsEJRu9dmk_Q1EiMDfQzh5hMk_9ISLznPj4NrHtonyAtAAAAtQUO0qCmRBeJtgbGsBSvfQ_ZOiB9y8anPowgiJZM7W8wpwSUsFXTfaEsLh0Qn8V1.gif?_=1743877501196 [0m- [0m- ms - -[0m
+[0mGET /__/assets/polyfills-B8CJjhRv.js [32m200 [0m3.843 ms - -[0m
+[0mGET /__/assets/index-BOik9Ajq.css [32m200 [0m4.814 ms - -[0m
+[0mGET /tracker?_=0.7831169272097078;id=3118422;u=https%3A%2F%2Faccount.mail.ru%2F;title=Account%20Mail.Ru;s=1920*1200;vp=1920*1080;touch=0;hds=1;sid=145eb60bcd12aa87;ver=60.6.0;tz=-180%2FEurope%2FMoscow;st=1743779024498;nt=0/0/1743779023844/////1/1/1/1/1//5/51/55/56/654/654/656/1083//;ct=531/537/537/546/288;rt=288/216/0/0/0/288/288/288/291/299/292/299/503/504;gl=u;ni=10//4g/50/0/;detect=0;lvid=1743448879761%3A1743779024929%3A2%3A288b69f8fa06d7261cd7b8b32e5e32ab;opts=frame%2Cwda%2Ccnhp%3Dhttp%2F1.1%2Ccs%3D19238-47446-19538;fpid=l9uVaDGBrqeHyYZQZ8jvq;visible=true;js=13;e=RT%2Funload;et=1743779024927;pvt=429;vtauto=549 [32m200 [0m21.996 ms - -[0m
+[0mGET /__/assets/index-2fuRUm5q.js [32m200 [0m5.501 ms - -[0m
+[0mGET /__cypress/runner/cypress_runner.css [36m304 [0m0.708 ms - -[0m
+[0mGET /__/assets/default-X1MPpkdc.js [36m304 [0m1.245 ms - -[0m
+[0mGET /__/assets/chevron-right_x16-C1Lu0bq5.js [36m304 [0m2.718 ms - -[0m
+[0mGET /__/assets/cypress-dark-Cng83Qdd.js [36m304 [0m2.478 ms - -[0m
+[0mGET /__/assets/browserLogos-Dr23JQUO.js [36m304 [0m2.161 ms - -[0m
+[0mGET /__/assets/Tooltip-D6iHgULj.css [36m304 [0m46.919 ms - -[0m
+[0mGET /__/assets/chevron-right-small_x16-KTlGGcYH.css [36m304 [0m40.601 ms - -[0m
+[0mGET /__/assets/default-BH0LNFW5.css [36m304 [0m52.282 ms - -[0m
+[0mGET /__/assets/action-record_x16-BLdIZmdN.css [36m304 [0m52.116 ms - -[0m
+[0mGET /__/assets/Index-BlBgAPh9.css [36m304 [0m47.607 ms - -[0m
+[0mGET /__/assets/Tooltip.vue_vue_type_style_index_0_lang-DBKbsfX7.js [36m304 [0m2.061 ms - -[0m
+[0mGET /__/assets/cypress-logo_x16-DgHgrPoh.js [36m304 [0m4.380 ms - -[0m
+[0mGET /__/assets/day-BT5YbQ6C.js [36m304 [0m4.685 ms - -[0m
+[0mGET /__/assets/chevron-right-small_x16-YFrFKpP-.js [36m304 [0m6.084 ms - -[0m
+[0mGET /__/assets/useMarkdown-DeNw6iPJ.js [36m304 [0m5.726 ms - -[0m
+[0mGET /__/assets/status-errored-outline_x16-B0IHJlTm.js [36m304 [0m4.569 ms - -[0m
+[0mGET /__/assets/document-text_x16-BISy70Dh.js [36m304 [0m4.264 ms - -[0m
+[0mGET /__/assets/OpenFileInIDE.vue_vue_type_script_setup_true_lang-Rb26aN60.js [36m304 [0m3.770 ms - -[0m
+[0mGET /__/assets/useRelevantRun-Dr8TN8Zw.js [36m304 [0m4.522 ms - -[0m
+[0mGET /__/assets/isWindows-BB1jO4nZ.js [36m304 [0m6.217 ms - -[0m
+[0mGET /__/assets/index.es-Df2sfJ5Z.js [36m304 [0m4.151 ms - -[0m
+[0mGET /__/assets/Specs-BJJMP_sr.js [36m304 [0m3.809 ms - -[0m
+[0mGET /__/assets/route-block-B_A1xBdJ.js [36m304 [0m4.128 ms - -[0m
+[0mGET /__/assets/Index-CYOgnAtf.js [36m304 [0m5.746 ms - -[0m
+[0mGET /__/assets/TrackedBanner.vue_vue_type_script_setup_true_lang-BHj0N7b3.js [36m304 [0m5.082 ms - -[0m
+[0mGET /__/assets/action-record_x16-tRJbQmrj.js [36m304 [0m4.903 ms - -[0m
+[0mGET /__/assets/box-open_x48-WEKBHc5l.js [36m304 [0m4.565 ms - -[0m
+[0mGET /__/assets/SpecPatterns.vue_vue_type_script_setup_true_lang-DJLtwLb9.js [36m304 [0m4.562 ms - -[0m
+[0mGET /__/assets/graphql-BM8rtIyM.js [36m304 [0m6.554 ms - -[0m
+[0mGET /__/assets/SpecNameDisplay.vue_vue_type_script_setup_true_lang-CSoBZ6Tn.js [36m304 [0m5.889 ms - -[0m
+[0mGET /__/assets/PromoHeader.vue_vue_type_script_setup_true_lang-DZ-8-5ER.js [36m304 [0m2.029 ms - -[0m
+[0mGET /__/assets/settings_x16-8oAwx9V_.js [36m304 [0m3.527 ms - -[0m
+[0mGET /__/assets/cypress_s-oVtifuuw.png [36m304 [0m0.305 ms - -[0m
+[0mGET /__cypress/runner/cypress_runner.js [32m200 [0m4.581 ms - -[0m
+[0mGET /__/assets/Runner-O8gchaFy.css [32m200 [0m3.964 ms - -[0m
+[0mGET /__/assets/Switch.vue_vue_type_script_setup_true_lang-BZWvLIyt.js [32m200 [0m4.475 ms - -[0m
+[0mGET /__/assets/refresh_x16-fr49NEAy.js [32m200 [0m1.925 ms - -[0m
+[0mGET /__/assets/Runner-Bu_ZsWOn.js [32m200 [0m5.002 ms - -[0m
+[0mGET /__cypress-studio/app-studio.js [32m200 [0m0.136 ms - 0[0m
+[0mGET /__cypress/iframes/cypress%2Fe2e%2FmailRuInAccountTests.cy.js?browserFamily=chromium [32m200 [0m3.406 ms - -[0m
+[0mGET /__cypress/tests?p=cypress/support/e2e.js [32m200 [0m4.490 ms - -[0m
+[0mGET /__cypress/tests?p=cypress/e2e/mailRuInAccountTests.cy.js [32m200 [0m2.549 ms - -[0m
+[0mGET / [32m200 [0m6.240 ms - -[0m
+[0mGET /static/logo/rebranding/logo_dark_mail.svg [32m200 [0m21.444 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/external.css [32m200 [0m34.673 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/inline.modern.js [32m200 [0m43.025 ms - -[0m
+[0mGET /d26047874.gif?sz=49&rnd=159273102&ts=1743779034&sz=49 [32m200 [0m56.970 ms - -[0m
+[0mGET /pkgs/account.mail.ru/fmail-26775.471001/css/index.min.css [32m200 [0m83.112 ms - -[0m
+[0mGET /update?p=account&t=rawload_stat&v=1&email=&i=_:1 [32m200 [0m20.313 ms - -[0m
+[0mGET /hb/e.mail.ru/auth.gate/2.11.0/authGate.js?onload=__AG_onload [32m200 [0m41.376 ms - -[0m
+[0mGET /js/code.js [32m200 [0m60.313 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o [32m200 [0m40.807 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o&parent_pgid= [32m200 [0m54.802 ms - -[0m
+[0mGET /NaviData?mac=1&Socials=1&ldata=1&target=1&_=1743831083847 [32m200 [0m40.095 ms - -[0m
+[0mGET /pkgs/whiteline/2.210.0/external.modern.js [32m200 [0m31.617 ms - -[0m
+[0mGET /counter?_=0.8645899366756673;id=3118422;u=https%3A%2F%2Faccount.mail.ru%2F;title=Account%20Mail.Ru;s=1920*1200;vp=1920*1080;touch=0;hds=1;sid=9c7c3e521510913c;ver=60.6.0;tz=-180%2FEurope%2FMoscow;st=undefined;ct=260/266/266//163;rt=164/80/0/0/0/164/164/164/166/170/167/171/241/244;gl=u;ni=10//4g/50/0/;detect=0;lvid=1743448879761%3A1743779033286%3A1%3A288b69f8fa06d7261cd7b8b32e5e32ab;opts=frame%2Cwda%2Ccnhp%3Dhttp%2F1.1%2Ccs%3D19238-47446-19538;fpid=l9uVaDGBrqeHyYZQZ8jvq;visible=true;js=13 [32m200 [0m26.669 ms - -[0m
+[0mGET /hb/e.mail.ru/@mail-core/logger-preset/base.js?&v17.1.0&pv=17.1.0&f=1743778800000-0 [32m200 [0m83.356 ms - -[0m
+[0mGET /pixel/AAC3-wFe9prant0BDlqWVPW4Ctpc-xYkNcJVn54kYCkLi9USmrZnJeamvEqJKj2ZtNxnT2amr_kQXiS6OUKgbxcSnA7bVEn4tKUEe0eINRh6N3C5MqQDEWG9xn7wMD6vc0mV0mrmmYHlG00aQaFnlwwCrDuXIU9EU5j4MdsbfODr7gwo02xFHEQtAAAAgHGjgkpuA_UR-HQhSMwnEIGvPZ1p2K9V9x0j4GdlegAQHFk9k1MX10vGBQeHdLld.gif?_=1744713816368 [32m200 [0m27.495 ms - -[0m
+[0mGET /pkgs/account.mail.ru/fmail-26775.471001/js/ru_RU/main.js [32m200 [0m31.319 ms - -[0m
+[0mGET /ns.gif?n=417885329,417885333,417885332,417885365,417885323,417885358,417885320,417885373&_=1744708277311 [32m200 [0m31.699 ms - -[0m
+[0mGET /whiteline/assets/project-icons/580CED.svg [32m200 [0m28.287 ms - -[0m
+[0mGET /i/o4lsx4?mt_sub1=account.mail.ru [32m200 [0m90.847 ms - -[0m
+[0mGET /bulkstat/?type=imp&banner_ids=61021862,61021861,61021860,61021859,61021858,61021857,61021856,61021854&_=1743856108483 [32m200 [0m79.536 ms - -[0m
+[0mGET /i/z1q4a7?mt_sub1=account.mail.ru [32m200 [0m25.994 ms - -[0m
+[0mGET /i/jlsxn4?mt_sub1=account.mail.ru [32m200 [0m76.183 ms - -[0m
+[0mGET /i/k9iu14?mt_sub1=account.mail.ru [32m200 [0m25.821 ms - -[0m
+[0mGET /i/f0dxi9?mt_sub1=account.mail.ru [32m200 [0m86.742 ms - -[0m
+[0mGET /i/koydy6?mt_sub1=account.mail.ru [32m200 [0m79.865 ms - -[0m
+[0mGET /i/whc548?mt_sub1=account.mail.ru [32m200 [0m30.301 ms - -[0m
+[0mGET /i/sccve9?mt_sub1=account.mail.ru [32m200 [0m73.885 ms - -[0m
+[0mGET /js/dyn-goal-config.js?ids=3118422 [32m200 [0m37.895 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o&parent_pgid= [36m302 [0m1.374 ms - 26[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o&parent_pgid= [36m302 [0m0.981 ms - 26[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o&parent_pgid= [36m302 [0m1.002 ms - 26[0m
+[0mPOST /api/v1/user/short [36m302 [0m1.221 ms - 26[0m
+[0mGET / [36m302 [0m1.150 ms - 33[0m
+[0mPOST /batch?p=whiteline&pgid=m92x0h9l.m8 [36m302 [0m0.795 ms - 26[0m
+[0mGET /static/fonts/v1.100/VKSansText/WOFF2/VKSansTextRegular.woff2 [33m404 [0m27.072 ms - -[0m
+[0mGET /__/ [32m200 [0m27.187 ms - -[0m
+[0mGET /static/fonts/v1.100/VKSansText/WOFF2/VKSansTextBold.woff2 [33m404 [0m30.193 ms - -[0m
+[0mGET /__/ [32m200 [0m10.037 ms - -[0m
+[0mGET /__/ [32m200 [0m4.664 ms - -[0m
+[0mGET /__/ [32m200 [0m2.971 ms - -[0m
+[0mGET /__/ [32m200 [0m3.171 ms - -[0m
+[0mPOST /api/v1/utils/xray/batch?p=old-account&split=s12857c2s&pgid=m92x0h5f.y9o&parent_pgid= [36m302 [0m0.799 ms - 26[0m
+[0mGET /__/ [32m200 [0m4.912 ms - -[0m
+[0mGET /__/ [0m- [0m- ms - -[0m
+[0mGET /tracker?_=0.23039350998746522;id=3118422;u=https%3A%2F%2Faccount.mail.ru%2F;title=Account%20Mail.Ru;s=1920*1200;vp=1920*1080;touch=0;hds=1;sid=9c7c3e521510913c;ver=60.6.0;tz=-180%2FEurope%2FMoscow;st=1743779033489;nt=0/0/1743779033015/////1/1/1/1/1//5/17/21/22/474/474/477/676//;ct=260/266/266/271/163;rt=164/80/0/0/0/164/164/164/166/170/167/171/241/244;gl=u;ni=10//4g/50/0/;detect=0;lvid=1743448879761%3A1743779033753%3A2%3A288b69f8fa06d7261cd7b8b32e5e32ab;opts=frame%2Cwda%2Ccnhp%3Dhttp%2F1.1%2Ccs%3D19238-47446-19538;fpid=l9uVaDGBrqeHyYZQZ8jvq;visible=true;js=13;e=RT%2Funload;et=1743779033752;pvt=263;vtauto=474 [32m200 [0m19.537 ms - -[0m
+[0mGET /__/assets/polyfills-B8CJjhRv.js [32m200 [0m2.594 ms - -[0m
+[0mGET /__/assets/index-BOik9Ajq.css [32m200 [0m3.984 ms - -[0m
+[0mGET /__/assets/index-2fuRUm5q.js [32m200 [0m3.866 ms - -[0m
+[0mGET /__cypress/runner/cypress_runner.css [36m304 [0m0.674 ms - -[0m
+[0mGET /__/assets/default-X1MPpkdc.js [36m304 [0m2.274 ms - -[0m
+[0mGET /__/assets/chevron-right_x16-C1Lu0bq5.js [36m304 [0m1.778 ms - -[0m
+[0mGET /__/assets/cypress-dark-Cng83Qdd.js [36m304 [0m6.246 ms - -[0m
+[0mGET /__/assets/browserLogos-Dr23JQUO.js [36m304 [0m6.422 ms - -[0m
+[0mGET /__/assets/Tooltip-D6iHgULj.css [36m304 [0m32.419 ms - -[0m
+[0mGET /__/assets/chevron-right-small_x16-KTlGGcYH.css [36m304 [0m29.850 ms - -[0m
+[0mGET /__/assets/default-BH0LNFW5.css [36m304 [0m27.654 ms - -[0m
+[0mGET /__/assets/action-record_x16-BLdIZmdN.css [36m304 [0m27.214 ms - -[0m
+[0mGET /__/assets/Index-BlBgAPh9.css [36m304 [0m4.140 ms - -[0m
+[0mGET /__/assets/Tooltip.vue_vue_type_style_index_0_lang-DBKbsfX7.js [36m304 [0m3.121 ms - -[0m
+[0mGET /__/assets/cypress-logo_x16-DgHgrPoh.js [36m304 [0m2.873 ms - -[0m
+[0mGET /__/assets/day-BT5YbQ6C.js [36m304 [0m2.606 ms - -[0m
+[0mGET /__/assets/chevron-right-small_x16-YFrFKpP-.js [36m304 [0m2.355 ms - -[0m
+[0mGET /__/assets/useMarkdown-DeNw6iPJ.js [36m304 [0m2.089 ms - -[0m
+[0mGET /__/assets/status-errored-outline_x16-B0IHJlTm.js [36m304 [0m2.463 ms - -[0m
+[0mGET /__/assets/document-text_x16-BISy70Dh.js [36m304 [0m1.969 ms - -[0m
+[0mGET /__/assets/OpenFileInIDE.vue_vue_type_script_setup_true_lang-Rb26aN60.js [36m304 [0m1.919 ms - -[0m
+[0mGET /__/assets/useRelevantRun-Dr8TN8Zw.js [36m304 [0m1.863 ms - -[0m
+[0mGET /__/assets/isWindows-BB1jO4nZ.js [36m304 [0m1.833 ms - -[0m
+[0mGET /__/assets/index.es-Df2sfJ5Z.js [36m304 [0m1.920 ms - -[0m
+[0mGET /__/assets/Specs-BJJMP_sr.js [36m304 [0m1.601 ms - -[0m
+[0mGET /__/assets/route-block-B_A1xBdJ.js [36m304 [0m1.372 ms - -[0m
+[0mGET /__/assets/Index-CYOgnAtf.js [36m304 [0m1.139 ms - -[0m
+[0mGET /__/assets/TrackedBanner.vue_vue_type_script_setup_true_lang-BHj0N7b3.js [36m304 [0m0.929 ms - -[0m
+[0mGET /__/assets/action-record_x16-tRJbQmrj.js [36m304 [0m3.198 ms - -[0m
+[0mGET /__/assets/box-open_x48-WEKBHc5l.js [36m304 [0m2.766 ms - -[0m
+[0mGET /__/assets/SpecPatterns.vue_vue_type_script_setup_true_lang-DJLtwLb9.js [36m304 [0m2.498 ms - -[0m
+[0mGET /__/assets/graphql-BM8rtIyM.js [36m304 [0m2.254 ms - -[0m
+[0mGET /__/assets/SpecNameDisplay.vue_vue_type_script_setup_true_lang-CSoBZ6Tn.js [36m304 [0m1.988 ms - -[0m
+[0mGET /__/assets/PromoHeader.vue_vue_type_script_setup_true_lang-DZ-8-5ER.js [36m304 [0m2.340 ms - -[0m
+[0mGET /__/assets/settings_x16-8oAwx9V_.js [36m304 [0m2.031 ms - -[0m
+[0mGET /__/assets/cypress_s-oVtifuuw.png [36m304 [0m0.684 ms - -[0m
+[0mGET /__cypress/runner/cypress_runner.js [32m200 [0m4.431 ms - -[0m
+write EPIPE
+Error: write EPIPE
+    at afterWriteDispatched (node:internal/stream_base_commons:161:15)
+    at writeGeneric (node:internal/stream_base_commons:152:3)
+    at Socket._writeGeneric (node:net:958:11)
+    at Socket._write (node:net:970:8)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Function.log (/home/ivan_kanga/.cache/Cypress/14.2.1/Cypress/resources/app/packages/server/index.jsc:1:29036)
+    at debug (/home/ivan_kanga/.cache/Cypress/14.2.1/Cypress/resources/app/packages/server/index.jsc:1:13737)
+    at CacheTracker.addLoaded (/home/ivan_kanga/.cache/Cypress/14.2.1/Cypress/resources/app/packages/server/index.jsc:1:772869)
+    at PackherdModuleLoader.registerModuleLoad (/home/ivan_kanga/.cache/Cypress/14.2.1/Cypress/resources/app/packages/server/index.jsc:1:774837)
+    at customRequire (<embedded>:2886:1033534)
+    at p.close (<embedded>:2560:47243)
+    at C.close (<embedded>:2560:57854)
+    at j.R (<embedded>:2560:63019)
+    at j.emit (node:events:518:28)
+    at j.controlMessage (<embedded>:2560:45098)
+    at j.getData (<embedded>:2560:44057)
+    at j.startLoop (<embedded>:2560:41304)
+    at j._write (<embedded>:2560:40659)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+    at Socket.z (<embedded>:2560:63804)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:191:23)

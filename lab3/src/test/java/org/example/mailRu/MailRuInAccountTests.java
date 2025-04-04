@@ -6,13 +6,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.FindBy;
 
 import java.time.Duration;
+import java.util.Set;
 
 import static org.example.utils.Tags.*;
 
@@ -39,7 +39,7 @@ public class MailRuInAccountTests {
     @BeforeEach
     void open() {
         driver.get("https://e.mail.ru/inbox");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
 
@@ -92,7 +92,6 @@ public class MailRuInAccountTests {
         driverUtils.findByXpath("//div[contains(@class, 'button2__txt') and text()='Спам']").click();
 
         driverUtils.clickButton(DIV, "Спам");
-        driverUtils.clickButton(SPAN, "Открыть");
         driverUtils.assertText(SPAN, "Иван Тарасов");
         driverUtils.assertText(SPAN, "Тестовая тема");
         driverUtils.clickButton(SPAN, "Выделить все");
@@ -108,5 +107,11 @@ public class MailRuInAccountTests {
         driverUtils.clickButton(SPAN, "Найти");
         driverUtils.assertText(SPAN, "Иван Тарасов");
         driverUtils.assertText(SPAN, "Тестовая тема");
+
+        Set<Cookie> cookies = driver.manage().getCookies();
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie.getName() + " = " + cookie.getValue());
+        }
     }
+
 }

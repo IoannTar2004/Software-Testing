@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id("io.qameta.allure") version "2.11.2"
 }
 
 group 'org.example'
@@ -17,9 +18,19 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.30.0")
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'io.qameta.allure:allure-junit5:2.29.1'
+    implementation 'io.qameta.allure:allure-bom:2.29.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
 }
 
 test {
     useJUnitPlatform()
+
+    def allureDir = System.getProperty("allure.results.directory") ?: "$buildDir/allure-results/all"
+    systemProperty "allure.results.directory", allureDir
+
+    doFirst {
+        println "Allure results directory: $allureDir"
+    }
 }
