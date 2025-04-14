@@ -4,15 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:run": "bash -c 'DEBUG=cypress* cypress open --browser electron'"
   },
   "author": "ivan tarasov",
   "license": "ISC",
   "devDependencies": {
-    "allure-cypress": "^3.2.1",
-    "cypress": "^14.2.1"
-  },
-  "scripts": {
-    "cy:run" : "bash -c 'DEBUG=cypress* cypress open --browser electron'"
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1"
   }
 }
