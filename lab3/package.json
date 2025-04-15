@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:run": "bash -c 'DEBUG=cypress* cypress open --browser electron'"
+    "allure:generate": "allure generate build/allure-results/playwright --clean -o build/allure-report/playwright",
+    "playwright:test": "rmdir /s /q build\\allure-results\\playwright & npx playwright test & npm run allure:generate"
   },
   "author": "ivan tarasov",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.1"
+    "@types/node": "^22.14.1",
+    "allure-playwright": "^3.2.1"
   }
 }

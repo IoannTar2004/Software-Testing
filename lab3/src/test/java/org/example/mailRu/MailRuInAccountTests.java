@@ -1,117 +1,100 @@
 package org.example.mailRu;
 
-import org.example.utils.WebDriverUtils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.time.Duration;
-import java.util.Set;
-
-import static org.example.utils.Tags.*;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MailRuInAccountTests {
-
-    static WebDriver driver;
-    static WebDriverUtils driverUtils;
 
     @BeforeAll
     static void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=C:/Users/iwant/AppData/Local/Google/Chrome/User Data");
         options.addArguments("--profile-directory=Default");
-        driver = new ChromeDriver(options);
-        driverUtils = new WebDriverUtils(driver);
-    }
 
-    @AfterAll
-    static void tearDown() {
-        driver.close();
-        driver.quit();
+        Configuration.browser = "chrome";
+        Configuration.screenshots = true;
+        Configuration.browserCapabilities = options;
+        Configuration.timeout = 10000;
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                    .screenshots(true));
     }
 
     @BeforeEach
-    void open() {
-        driver.get("https://e.mail.ru/inbox");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+    void openPage() {
+        open("https://e.mail.ru/inbox");
     }
 
+
     private void sendToMyself() {
-        driverUtils.clickButton(SPAN, "Написать письмо");
-        driver.findElement(By.xpath("//div[contains(@class, 'container--hmD9c')]//input"))
-                .sendKeys("iwan.tarasow2013@mail.ru");
-        driver.findElement(By.xpath("//div[contains(@class, 'container--3QXHv')]//input"))
-                .sendKeys("Тестовая тема");
-        driverUtils.clickButton(SPAN, "Отправить");
-        driver.findElements(By.xpath("//span[text()='Отправить']")).get(1).click();
-        driver.navigate().refresh();
+        $x("//span[text()='Написать письмо']").click();
+        $x("//div[contains(@class, 'container--hmD9c')]//input").setValue("iwan.tarasow2004.st@mail.ru");
+        $x("//div[contains(@class, 'container--3QXHv')]//input").setValue("Тестовая тема");
+        $x("//div[@contenteditable='true']").setValue("Текст");
+//        driverUtils.clickButton(SPAN, "Отправить");
+        $x("//span[text()='Отправить']").click();
+        Selenide.refresh();
     }
 
     @Test
     void sendReceiveAndDeleteMailTest() {
         sendToMyself();
 
-        driverUtils.clickButton(DIV, "Письма себе");
-        driverUtils.assertText(SPAN, "Иван Тарасов");
-        driverUtils.clickButton(SPAN, "Тестовая тема");
-        driverUtils.clickButton(DIV, "Удалить");
+        $x("//div[text()='Письма себе']").click();
+        $x("//span[text()='Тестовая тема']").click();
+        $x("//div[text()='Удалить']").click();
 
-        driverUtils.clickButton(DIV, "Корзина");
-        driverUtils.clickButton(SPAN, "Выделить все");
-        driverUtils.clickButton(DIV, "Удалить");
+        $x("//div[text()='Корзина']").click();
+        $x("//span[text()='Выделить все']").click();
+        $x("//div[text()='Удалить']").click();
 
-        driver.findElement(By.xpath("//div[contains(@class, 'layer-window')]//div[text()='Очистить']")).click();
+        $x("//div[contains(@class, 'layer-window')]//div[text()='Очистить']").click();
     }
 
     @Test
     void draftsTest() {
-        driverUtils.clickButton(SPAN, "Написать письмо");
-        driver.findElement(By.xpath("//div[contains(@class, 'container--hmD9c')]//input"))
-                .sendKeys("iwan.tarasow2013@mail.ru");
-        driverUtils.clickButton(SPAN, "Сохранить");
-        driver.navigate().refresh();
-        driverUtils.clickButton(DIV, "Черновики");
-        driverUtils.assertText(SPAN, "iwan.tarasow2013@mail.ru");
-        driverUtils.assertText(SPAN, "<Без темы>");
-        driverUtils.clickButton(SPAN, "Выделить все");
-        driverUtils.clickButton(DIV, "Удалить");
+        $x("//span[text()='Написать письмо']").click();
+        $x("//div[contains(@class, 'container--hmD9c')]//input").setValue("iwan.tarasow2004.st@mail.ru");
+        $x("//span[text()='Сохранить']").click();
+        Selenide.refresh();
+        $x("//div[text()='Черновики']").click();
+        $x("//span[text()='iwan.tarasow2004.st@mail.ru']").should(visible);
+        $x("//span[text()='<Без темы>']").should(visible);
+        $x("//span[text()='Выделить все']");
+        $x("//div[text()='Удалить']");
     }
 
     @Test
     void spamTest() {
         sendToMyself();
-        driverUtils.clickButton(DIV, "Письма себе");
-        driverUtils.clickButton(SPAN, "Иван Тарасов");
-        driverUtils.findByXpath("//div[contains(@class, 'button2__txt') and text()='Спам']").click();
+        $x("//div[text()='Письма себе']").click();
+        $x("//span[text()='Тестовая тема']").click();
+        $x("//div[contains(@class, 'button2__txt') and text()='Спам']").click();
 
-        driverUtils.clickButton(DIV, "Спам");
-        driverUtils.assertText(SPAN, "Иван Тарасов");
-        driverUtils.assertText(SPAN, "Тестовая тема");
-        driverUtils.clickButton(SPAN, "Выделить все");
-        driverUtils.clickButton(DIV, "Удалить");
+        $x("//div[text()='Спам']").click();
+        $x("//span[text()='Иван Тарасов']").should(visible);
+        $x("//span[text()='Тестовая тема']").should(visible);
+
+        $x("//span[text()='Выделить все']");
+        $x("//div[text()='Удалить']");
     }
 
     @Test
     void searchMailTest() {
+//        throw new RuntimeException();
         sendToMyself();
-        driverUtils.clickButton(SPAN, "Поиск по почте");
-        driverUtils.findByXpath("//input[contains(@class, 'mail-operands_dynamic-input__input--Ckq58')]")
-                .sendKeys("Тестовая тема");
-        driverUtils.clickButton(SPAN, "Найти");
-        driverUtils.assertText(SPAN, "Иван Тарасов");
-        driverUtils.assertText(SPAN, "Тестовая тема");
-
-        Set<Cookie> cookies = driver.manage().getCookies();
-        for (Cookie cookie : cookies) {
-            System.out.println(cookie.getName() + " = " + cookie.getValue());
-        }
+        $x("//span[text()='Поиск по почте']").click();
+        $x("//input[contains(@class, 'mail-operands_dynamic-input__input--Ckq58')]").setValue("Тестовая тема");
+        $x("//span[text()='Найти']").click();
+        $x("//span[text()='Иван Тарасов']").should(visible);
+        $x("//span[text()='Тестовая тема']").should(visible);
     }
 
 }

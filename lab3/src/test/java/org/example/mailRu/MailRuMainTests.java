@@ -1,5 +1,6 @@
 package org.example.mailRu;
 
+import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MailRuMainTests {
 
     static WebDriver driver;
+
+    @Attachment(value = "Screenshot on failure", type = "image/png")
+    public byte[] takeScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 
     @BeforeAll
     static void setUp() {
@@ -38,7 +44,7 @@ public class MailRuMainTests {
 
         driver.manage().window().maximize();
         driver.switchTo().frame(0);
-        driver.findElement(By.xpath("//input[@name='text']")).sendKeys("пробки");
+        driver.findElement(By.xpath("//input[@name='textr']")).sendKeys("пробки");
         driver.switchTo().defaultContent();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
@@ -47,20 +53,18 @@ public class MailRuMainTests {
     }
 
     @Test
-    public void loginTest() {
+    public void loginWithYandexFailTest() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.findElement(By.xpath("//button[contains(., 'Войти')]")).click();
         driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src, 'account.mail.ru')]")));
         driver.findElement(By.xpath("//span[contains(@class, 'ProvidersListItemIconYandex')]")).click();
 
-        driver.findElement(By.xpath("//input[@placeholder='Имя аккаунта']")).sendKeys("iwan.tarasow2013");
+        driver.findElement(By.xpath("//input[@placeholder='Имя аккаунта']")).sendKeys("iwan.tarasow201");
         driver.findElement(By.xpath("//span[contains(., 'Продолжить')]")).click();
         driver.switchTo().defaultContent();
-        driver.findElement(By.xpath("//button[contains(@class, 'Button2')]")).click();
-        driver.findElement(By.xpath("//input[@placeholder='Введите пароль']")).sendKeys("121212");
-        driver.findElement(By.xpath("//button[contains(@class, 'Button2_type_submit')]")).click();
-        driver.findElement(By.xpath("//div[contains(., 'Неверный пароль')]"));
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.xpath("//div[contains(text(), 'Нет такого аккаунта.')]"));
     }
 
     @Test

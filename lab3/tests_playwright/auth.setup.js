@@ -3,7 +3,7 @@ import path from 'path';
 
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
-setup('authenticate', async ({ page }) => {
+setup('Авторизация', async ({ page }) => {
     await page.goto('/');
 
     await page.locator("input[placeholder='Имя аккаунта']").fill("iwan.tarasow2004.st@mail.ru");
